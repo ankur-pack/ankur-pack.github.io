@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Professional Portfolio</title>
+    <title>Ankur Pachauri - Engineering & Project Manager</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <style>
         /* Custom CSS for animations and effects */
         .profile-img {
@@ -31,6 +32,16 @@
         .fade-in {
             animation: fadeIn 1s ease-in;
         }
+        .mobile-menu {
+            display: none;
+        }
+        .mobile-menu.active {
+            display: block;
+        }
+        .dark-mode {
+            background-color: #1a202c;
+            color: #f7fafc;
+        }
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
@@ -41,7 +52,7 @@
                 <div class="flex space-x-7">
                     <div>
                         <a href="#" class="flex items-center py-4 px-2">
-                            <span class="font-semibold text-gray-900 text-lg">MyPortfolio</span>
+                            <span class="font-semibold text-gray-900 text-lg">Ankur Pachauri</span>
                         </a>
                     </div>
                 </div>
@@ -51,11 +62,13 @@
                     <a href="#skills" class="py-4 px-2 text-gray-500 hover:text-blue-600 transition duration-300">Skills</a>
                     <a href="#projects" class="py-4 px-2 text-gray-500 hover:text-blue-600 transition duration-300">Projects</a>
                     <a href="#contact" class="py-4 px-2 text-gray-500 hover:text-blue-600 transition duration-300">Contact</a>
+                    <button id="theme-toggle" class="p-2 text-gray-500 hover:text-blue-600">
+                        <i class="fas fa-moon"></i>
+                    </button>
                 </div>
                 <div class="md:hidden flex items-center">
-                    <button class="outline-none mobile-menu-button">
+                    <button class="outline-none mobile-menu-button" id="mobile-menu-button">
                         <svg class="w-6 h-6 text-gray-500" 
-                            x-show="!showMenu"
                             fill="none"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -69,13 +82,18 @@
                 </div>
             </div>
         </div>
-        <div class="hidden mobile-menu">
+        <div class="mobile-menu hidden" id="mobile-menu">
             <ul class="">
                 <li><a href="#home" class="block text-sm px-2 py-4 hover:bg-blue-500 hover:text-white transition duration-300">Home</a></li>
                 <li><a href="#about" class="block text-sm px-2 py-4 hover:bg-blue-500 hover:text-white transition duration-300">About</a></li>
                 <li><a href="#skills" class="block text-sm px-2 py-4 hover:bg-blue-500 hover:text-white transition duration-300">Skills</a></li>
                 <li><a href="#projects" class="block text-sm px-2 py-4 hover:bg-blue-500 hover:text-white transition duration-300">Projects</a></li>
                 <li><a href="#contact" class="block text-sm px-2 py-4 hover:bg-blue-500 hover:text-white transition duration-300">Contact</a></li>
+                <li>
+                    <button id="mobile-theme-toggle" class="block text-sm px-2 py-4 hover:bg-blue-500 hover:text-white transition duration-300 w-full text-left">
+                        <i class="fas fa-moon mr-2"></i>Toggle Theme
+                    </button>
+                </li>
             </ul>
         </div>
     </nav>
@@ -85,14 +103,14 @@
         <div class="container mx-auto px-6 text-center">
             <div class="flex flex-col md:flex-row items-center justify-center">
                 <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
-                    <img src="https://images.unsplash.com/photo-1536104968055-4d61aa56f46a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" 
-                         alt="Profile Image" 
+                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQH-ZTgT_K6DmQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1679391997186?e=2147483647&v=beta&t=fCEVsIytm-IKxFClcM8f_u2CxXXXWsHKB5GavNrSFoI" 
+                         alt="Ankur Pachauri" 
                          class="rounded-full w-64 h-64 object-cover mx-auto profile-img shadow-xl border-4 border-white">
                 </div>
                 <div class="md:w-1/2 md:pl-12 fade-in">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="text-yellow-300">[Your Name]</span></h1>
-                    <h2 class="text-2xl md:text-3xl mb-6">Professional <span id="typed" class="font-bold"></span></h2>
-                    <p class="text-lg mb-8">I create beautiful, functional websites and applications that deliver results.</p>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="text-yellow-300">Ankur Pachauri</span></h1>
+                    <h2 class="text-2xl md:text-3xl mb-6">Engineering & Project Manager <span id="typed" class="font-bold"></span></h2>
+                    <p class="text-lg mb-8">15 years experience in digital transformation, QA/DevOps strategy, and cloud infrastructure delivery.</p>
                     <div class="flex justify-center space-x-4">
                         <a href="#contact" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300">Hire Me</a>
                         <a href="#projects" class="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition duration-300">View Work</a>
@@ -103,51 +121,138 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
+    <section id="about" class="py-20 bg-white dark:bg-gray-800">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">About Me</h2>
+            <h2 class="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">Professional Profile</h2>
             <div class="flex flex-col md:flex-row">
                 <div class="md:w-1/2 mb-10 md:mb-0">
-                    <h3 class="text-2xl font-semibold text-gray-700 mb-4">Who I Am</h3>
-                    <p class="text-gray-600 mb-4 leading-relaxed">
-                        I'm a passionate web developer with [X] years of experience creating digital solutions for businesses. 
-                        My journey in tech started when [your story]. Since then, I've worked with clients across various industries 
-                        to bring their ideas to life.
+                    <h3 class="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-4">Career Summary</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                        Tech Engineering & Project Manager with 15 years of experience leading digital transformation, QA and DevOps strategy, 
+                        cloud infrastructure delivery, and full product lifecycle ownership. Proven success in managing technical RFPs, 
+                        customer demos, and pre-sales engagements.
                     </p>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        When I'm not coding, you can find me [your hobbies/interests]. I believe in continuous learning and staying 
-                        updated with the latest technologies to deliver the best solutions.
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                        Hands-on with data center validation setups, SRE best practices, microservices QA, and AI-based platform delivery. 
+                        Demonstrated ability to drive enterprise initiatives across domains like e-commerce, marketing automation, storage, 
+                        and loyalty platforms.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-blue-600 hover:text-blue-800">
+                        <a href="#" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-600">
                             <i class="fab fa-github fa-2x"></i>
                         </a>
-                        <a href="#" class="text-blue-600 hover:text-blue-800">
+                        <a href="#" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-600">
                             <i class="fab fa-linkedin fa-2x"></i>
                         </a>
-                        <a href="#" class="text-blue-600 hover:text-blue-800">
+                        <a href="#" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-600">
                             <i class="fab fa-twitter fa-2x"></i>
                         </a>
                     </div>
                 </div>
                 <div class="md:w-1/2 md:pl-12">
-                    <h3 class="text-2xl font-semibold text-gray-700 mb-4">My Experience</h3>
-                    <div class="space-y-6">
-                        <div class="border-l-4 border-blue-500 pl-4">
-                            <h4 class="text-xl font-medium text-gray-800">Senior Web Developer</h4>
-                            <p class="text-gray-500">ABC Company | 2020 - Present</p>
-                            <p class="text-gray-600 mt-2">Led a team of developers to build responsive web applications using modern JavaScript frameworks.</p>
+                    <h3 class="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-4">Core Competencies</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
+                            <h4 class="font-medium text-gray-800 dark:text-white mb-2">Project Delivery</h4>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm">Agile/Scrum • Stakeholder Alignment • Release Governance</p>
                         </div>
-                        <div class="border-l-4 border-blue-500 pl-4">
-                            <h4 class="text-xl font-medium text-gray-800">Web Developer</h4>
-                            <p class="text-gray-500">XYZ Agency | 2018 - 2020</p>
-                            <p class="text-gray-600 mt-2">Developed and maintained client websites with a focus on user experience and performance.</p>
+                        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
+                            <h4 class="font-medium text-gray-800 dark:text-white mb-2">Cloud & Data</h4>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm">Azure • AWS • GCP • Databricks • Snowflake</p>
                         </div>
-                        <div class="border-l-4 border-blue-500 pl-4">
-                            <h4 class="text-xl font-medium text-gray-800">Freelance Developer</h4>
-                            <p class="text-gray-500">Self-Employed | 2016 - 2018</p>
-                            <p class="text-gray-600 mt-2">Worked with small businesses to establish their online presence through custom websites.</p>
+                        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
+                            <h4 class="font-medium text-gray-800 dark:text-white mb-2">Engineering Practices</h4>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm">SRE • CI/CD • QA Automation • API/Performance Testing</p>
                         </div>
+                        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
+                            <h4 class="font-medium text-gray-800 dark:text-white mb-2">Solutioning</h4>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm">RFP Ownership • Technical Proposals • Customer Demos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-gray-100 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">Professional Experience</h2>
+            
+            <!-- PAR Experience -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+                <div class="flex flex-col md:flex-row justify-between">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Technology Lead & PM — Big Data & AI</h3>
+                        <p class="text-gray-600 dark:text-gray-300">PAR | Sep 2023 – Present</p>
+                    </div>
+                    <div class="mt-4 md:mt-0">
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full dark:bg-blue-900 dark:text-blue-200">AWS</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full dark:bg-blue-900 dark:text-blue-200">Azure</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full dark:bg-blue-900 dark:text-blue-200">Snowflake</span>
+                    </div>
+                </div>
+                <ul class="mt-4 space-y-2 text-gray-600 dark:text-gray-300 list-disc pl-5">
+                    <li>Spearheaded development of a loyalty data platform, processing 10M+ daily events with 99.9% SLA</li>
+                    <li>Managed end-to-end delivery of AI MVPs for churn prediction and customer segmentation, improving marketing ROI by 20%</li>
+                    <li>Led migration to Snowflake and dashboard modernization with Tableau, reducing reporting latency by 40%</li>
+                    <li>Built and maintained real-time monitoring dashboards using NRQL, Grafana, Prometheus, and Observe</li>
+                </ul>
+            </div>
+            
+            <!-- HPE Experience -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+                <div class="flex flex-col md:flex-row justify-between">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Lead Product Specialist</h3>
+                        <p class="text-gray-600 dark:text-gray-300">HPE (Hewlett Packard Enterprise) | Apr 2016 – Sep 2023</p>
+                    </div>
+                    <div class="mt-4 md:mt-0">
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full dark:bg-blue-900 dark:text-blue-200">HPE GreenLake</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full dark:bg-blue-900 dark:text-blue-200">GenAI</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full dark:bg-blue-900 dark:text-blue-200">CI/CD</span>
+                    </div>
+                </div>
+                <ul class="mt-4 space-y-2 text-gray-600 dark:text-gray-300 list-disc pl-5">
+                    <li>Led large-scale enterprise delivery for HPE GreenLake and Ezmeral, coordinating with global dev/test ops</li>
+                    <li>Delivered RFP responses and conducted technical pre-sales engagements for AI/analytics platforms</li>
+                    <li>Owned deployment of GenAI-driven analytics across enterprise environments</li>
+                    <li>Directed CI/CD pipeline modernization and established QA governance across hybrid cloud</li>
+                </ul>
+            </div>
+            
+            <!-- Previous Experience -->
+            <div class="text-center">
+                <button id="show-more-exp" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-600 font-medium">
+                    View Previous Experience <i class="fas fa-chevron-down ml-1"></i>
+                </button>
+                <div id="more-exp" class="hidden mt-6">
+                    <!-- InfoBeans Experience -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+                        <div class="flex flex-col md:flex-row justify-between">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Module Lead – Storage Integration (NetApp)</h3>
+                                <p class="text-gray-600 dark:text-gray-300">InfoBeans | Nov 2015 – Mar 2016</p>
+                            </div>
+                        </div>
+                        <ul class="mt-4 space-y-2 text-gray-600 dark:text-gray-300 list-disc pl-5">
+                            <li>Defined HLD, migration, and integration documentation for NetApp storage</li>
+                            <li>Managed timelines, scope, documentation, and lab setup for validation with client engineering teams</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Harman Experience -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+                        <div class="flex flex-col md:flex-row justify-between">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 dark:text-white">QA Delivery Lead</h3>
+                                <p class="text-gray-600 dark:text-gray-300">Harman Connected Services | Jul 2014 – Oct 2015</p>
+                            </div>
+                        </div>
+                        <ul class="mt-4 space-y-2 text-gray-600 dark:text-gray-300 list-disc pl-5">
+                            <li>Delivered SSD analytics platform in collaboration with startup Avalanche</li>
+                            <li>Managed QA, performance, and API testing sprints with continuous delivery using Jenkins pipelines</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -155,192 +260,368 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-100">
+    <section id="skills" class="py-20 bg-white dark:bg-gray-800">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">My Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-700 mb-4">Technical Skills</h3>
-                    <div class="space-y-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">Technical Expertise</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Cloud Platforms -->
+                <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-4 flex items-center">
+                        <i class="fas fa-cloud mr-3 text-blue-500"></i> Cloud Platforms
+                    </h3>
+                    <div class="space-y-3">
                         <div>
                             <div class="flex justify-between mb-1">
-                                <span class="text-gray-700">HTML/CSS</span>
-                                <span class="text-gray-600">95%</span>
+                                <span class="text-gray-700 dark:text-gray-300">Microsoft Azure</span>
+                                <span class="text-gray-600 dark:text-gray-400">90%</span>
                             </div>
-                            <div class="w-full bg-gray-300 rounded-full h-2.5">
-                                <div class="bg-blue-600 h-2.5 rounded-full skill-bar" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-700">JavaScript</span>
-                                <span class="text-gray-600">90%</span>
-                            </div>
-                            <div class="w-full bg-gray-300 rounded-full h-2.5">
+                            <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-600">
                                 <div class="bg-blue-600 h-2.5 rounded-full skill-bar" style="width: 90%"></div>
                             </div>
                         </div>
                         <div>
                             <div class="flex justify-between mb-1">
-                                <span class="text-gray-700">React</span>
-                                <span class="text-gray-600">85%</span>
+                                <span class="text-gray-700 dark:text-gray-300">AWS</span>
+                                <span class="text-gray-600 dark:text-gray-400">85%</span>
                             </div>
-                            <div class="w-full bg-gray-300 rounded-full h-2.5">
+                            <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-600">
                                 <div class="bg-blue-600 h-2.5 rounded-full skill-bar" style="width: 85%"></div>
                             </div>
                         </div>
                         <div>
                             <div class="flex justify-between mb-1">
-                                <span class="text-gray-700">Node.js</span>
-                                <span class="text-gray-600">80%</span>
+                                <span class="text-gray-700 dark:text-gray-300">Google Cloud</span>
+                                <span class="text-gray-600 dark:text-gray-400">80%</span>
                             </div>
-                            <div class="w-full bg-gray-300 rounded-full h-2.5">
+                            <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-600">
                                 <div class="bg-blue-600 h-2.5 rounded-full skill-bar" style="width: 80%"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-700 mb-4">Professional Skills</h3>
-                    <div class="space-y-4">
+                
+                <!-- Data & Analytics -->
+                <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-4 flex items-center">
+                        <i class="fas fa-database mr-3 text-green-500"></i> Data & Analytics
+                    </h3>
+                    <div class="space-y-3">
                         <div>
                             <div class="flex justify-between mb-1">
-                                <span class="text-gray-700">Communication</span>
-                                <span class="text-gray-600">90%</span>
+                                <span class="text-gray-700 dark:text-gray-300">Snowflake</span>
+                                <span class="text-gray-600 dark:text-gray-400">90%</span>
                             </div>
-                            <div class="w-full bg-gray-300 rounded-full h-2.5">
+                            <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-600">
                                 <div class="bg-green-500 h-2.5 rounded-full skill-bar" style="width: 90%"></div>
                             </div>
                         </div>
                         <div>
                             <div class="flex justify-between mb-1">
-                                <span class="text-gray-700">Teamwork</span>
-                                <span class="text-gray-600">85%</span>
+                                <span class="text-gray-700 dark:text-gray-300">Databricks</span>
+                                <span class="text-gray-600 dark:text-gray-400">85%</span>
                             </div>
-                            <div class="w-full bg-gray-300 rounded-full h-2.5">
+                            <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-600">
                                 <div class="bg-green-500 h-2.5 rounded-full skill-bar" style="width: 85%"></div>
                             </div>
                         </div>
                         <div>
                             <div class="flex justify-between mb-1">
-                                <span class="text-gray-700">Project Management</span>
-                                <span class="text-gray-600">80%</span>
+                                <span class="text-gray-700 dark:text-gray-300">Tableau</span>
+                                <span class="text-gray-600 dark:text-gray-400">80%</span>
                             </div>
-                            <div class="w-full bg-gray-300 rounded-full h-2.5">
+                            <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-600">
                                 <div class="bg-green-500 h-2.5 rounded-full skill-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- DevOps & SRE -->
+                <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-4 flex items-center">
+                        <i class="fas fa-server mr-3 text-purple-500"></i> DevOps & SRE
+                    </h3>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-700 dark:text-gray-300">CI/CD Pipelines</span>
+                                <span class="text-gray-600 dark:text-gray-400">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-purple-500 h-2.5 rounded-full skill-bar" style="width: 95%"></div>
                             </div>
                         </div>
                         <div>
                             <div class="flex justify-between mb-1">
-                                <span class="text-gray-700">Problem Solving</span>
-                                <span class="text-gray-600">95%</span>
+                                <span class="text-gray-700 dark:text-gray-300">Monitoring (Grafana)</span>
+                                <span class="text-gray-600 dark:text-gray-400">90%</span>
                             </div>
-                            <div class="w-full bg-gray-300 rounded-full h-2.5">
-                                <div class="bg-green-500 h-2.5 rounded-full skill-bar" style="width: 95%"></div>
+                            <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-purple-500 h-2.5 rounded-full skill-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-700 dark:text-gray-300">QA Automation</span>
+                                <span class="text-gray-600 dark:text-gray-400">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-purple-500 h-2.5 rounded-full skill-bar" style="width: 85%"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <!-- Tools & Certifications -->
             <div class="mt-12">
-                <h3 class="text-xl font-semibold text-gray-700 mb-6 text-center">Tools & Technologies</h3>
+                <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-6 text-center">Tools & Certifications</h3>
                 <div class="flex flex-wrap justify-center gap-6">
                     <div class="flex flex-col items-center">
-                        <i class="fab fa-html5 text-4xl text-orange-500 mb-2"></i>
-                        <span class="text-gray-600">HTML5</span>
+                        <i class="fab fa-jenkins text-4xl text-red-500 mb-2"></i>
+                        <span class="text-gray-600 dark:text-gray-300">Jenkins</span>
                     </div>
                     <div class="flex flex-col items-center">
-                        <i class="fab fa-css3-alt text-4xl text-blue-500 mb-2"></i>
-                        <span class="text-gray-600">CSS3</span>
+                        <i class="fas fa-certificate text-4xl text-yellow-500 mb-2"></i>
+                        <span class="text-gray-600 dark:text-gray-300">PMP</span>
                     </div>
                     <div class="flex flex-col items-center">
-                        <i class="fab fa-js text-4xl text-yellow-500 mb-2"></i>
-                        <span class="text-gray-600">JavaScript</span>
+                        <i class="fas fa-robot text-4xl text-blue-400 mb-2"></i>
+                        <span class="text-gray-600 dark:text-gray-300">SAFe</span>
                     </div>
                     <div class="flex flex-col items-center">
-                        <i class="fab fa-react text-4xl text-blue-400 mb-2"></i>
-                        <span class="text-gray-600">React</span>
+                        <i class="fas fa-chart-bar text-4xl text-green-500 mb-2"></i>
+                        <span class="text-gray-600 dark:text-gray-300">Six Sigma</span>
                     </div>
                     <div class="flex flex-col items-center">
-                        <i class="fab fa-node-js text-4xl text-green-600 mb-2"></i>
-                        <span class="text-gray-600">Node.js</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <i class="fab fa-git-alt text-4xl text-orange-600 mb-2"></i>
-                        <span class="text-gray-600">Git</span>
+                        <i class="fas fa-brain text-4xl text-purple-500 mb-2"></i>
+                        <span class="text-gray-600 dark:text-gray-300">Prompt Eng</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">My Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-lg project-card">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                         alt="Project 1" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">E-commerce Website</h3>
-                        <p class="text-gray-600 mb-4">A full-featured online store with product listings, cart functionality, and secure checkout.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">React</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Node.js</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">MongoDB</span>
-                        </div>
-                        <div class="flex space-x-3">
-                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Live Demo</a>
-                            <a href="#" class="text-gray-600 hover:text-gray-800 font-medium">Code</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-lg project-card">
-                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
-                         alt="Project 2" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Task Management App</h3>
-                        <p class="text-gray-600 mb-4">A productivity application for organizing tasks with drag-and-drop functionality and team collaboration.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Vue.js</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Firebase</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">TailwindCSS</span>
-                        </div>
-                        <div class="flex space-x-3">
-                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Live Demo</a>
-                            <a href="#" class="text-gray-600 hover:text-gray-800 font-medium">Code</a>
+<!-- Projects Section - Innovative Redesign -->
+<section id="projects" class="py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center text-gray-800 dark:text-white mb-4">Data Platform Innovations</h2>
+        <p class="text-xl text-center text-gray-600 dark:text-gray-300 mb-12">Architecting scalable solutions at the intersection of data and AI</p>
+        
+        <!-- Interactive Filter -->
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+            <button class="filter-btn px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-all" data-filter="all">All Projects</button>
+            <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all" data-filter="ai">AI/ML</button>
+            <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all" data-filter="cloud">Cloud Migration</button>
+            <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all" data-filter="data">Data Pipelines</button>
+        </div>
+
+        <!-- Project Grid with Enhanced Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
+            <!-- Loyalty Data Platform -->
+            <div class="project-card group" data-categories="ai cloud data">
+                <div class="h-full bg-white dark:bg-gray-800 rounded-xl shadow-xl overflow-hidden transform transition-all duration-500 hover:shadow-2xl">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Loyalty Data Platform" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="inline-block px-3 py-1 bg-blue-600 text-white text-sm rounded-full">Flagship Project</span>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-lg project-card">
-                    <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1636&q=80" 
-                         alt="Project 3" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Weather Dashboard</h3>
-                        <p class="text-gray-600 mb-4">Real-time weather information with 5-day forecast using data from a weather API.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">JavaScript</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">API</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Bootstrap</span>
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">Loyalty Data Platform</h3>
+                            <span class="text-xs text-gray-500 dark:text-gray-400">2023-Present</span>
                         </div>
-                        <div class="flex space-x-3">
-                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Live Demo</a>
-                            <a href="#" class="text-gray-600 hover:text-gray-800 font-medium">Code</a>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Scalable architecture processing 10M+ daily events with AI-powered recommendations</p>
+                        
+                        <!-- Metrics Visualization -->
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm text-gray-500 dark:text-gray-400 mb-1">
+                                <span>Throughput</span>
+                                <span>10M+ events/day</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Snowflake</span>
+                            <span class="tech-tag">Azure</span>
+                            <span class="tech-tag">Kafka</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">ML</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <i class="fas fa-user-tie text-blue-500 mr-2"></i>
+                                <span class="text-sm text-gray-600 dark:text-gray-300">Tech Lead</span>
+                            </div>
+                            <button class="project-detail-btn text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-600 text-sm font-medium">
+                                View Case Study <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-10">
-                <a href="#" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300">View All Projects</a>
+            
+            <!-- GenAI Dashboard Analytics -->
+            <div class="project-card group" data-categories="ai data">
+                <div class="h-full bg-white dark:bg-gray-800 rounded-xl shadow-xl overflow-hidden transform transition-all duration-500 hover:shadow-2xl">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="GenAI Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">GenAI Dashboard Analytics</h3>
+                            <span class="text-xs text-gray-500 dark:text-gray-400">2021-2023</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Natural language query interface for enterprise BI with automated insights</p>
+                        
+                        <!-- Innovation Highlight -->
+                        <div class="bg-blue-50 dark:bg-blue-900/30 p-3 rounded-lg mb-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-lightbulb text-yellow-500 mt-1 mr-2"></i>
+                                <p class="text-sm text-gray-700 dark:text-gray-300">Pioneered GenAI integration reducing dashboard creation time by 65%</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Databricks</span>
+                            <span class="tech-tag">LLM</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Azure</span>
+                            <span class="tech-tag">PowerBI</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <i class="fas fa-chart-line text-purple-500 mr-2"></i>
+                                <span class="text-sm text-gray-600 dark:text-gray-300">Engineering Lead</span>
+                            </div>
+                            <button class="project-detail-btn text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-600 text-sm font-medium">
+                                View Architecture <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cloud Migration to Snowflake -->
+            <div class="project-card group" data-categories="cloud data">
+                <div class="h-full bg-white dark:bg-gray-800 rounded-xl shadow-xl overflow-hidden transform transition-all duration-500 hover:shadow-2xl">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                             alt="Snowflake Migration" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">Snowflake Cloud Migration</h3>
+                            <span class="text-xs text-gray-500 dark:text-gray-400">2023</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Zero-downtime migration of ETL workflows with 40% reduction in reporting latency</p>
+                        
+                        <!-- Results Bar -->
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-gray-600 dark:text-gray-300">Before: 1200ms</span>
+                                <span class="text-gray-600 dark:text-gray-300">After: 720ms</span>
+                            </div>
+                            <div class="relative pt-1">
+                                <div class="flex mb-2 items-center justify-between">
+                                    <div>
+                                        <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
+                                            -40% Latency
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200 dark:bg-gray-700">
+                                    <div style="width:100%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gray-400 dark:bg-gray-600"></div>
+                                    <div style="width:60%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Snowflake</span>
+                            <span class="tech-tag">DBT</span>
+                            <span class="tech-tag">Airflow</span>
+                            <span class="tech-tag">CI/CD</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <i class="fas fa-cloud-upload-alt text-blue-400 mr-2"></i>
+                                <span class="text-sm text-gray-600 dark:text-gray-300">Migration Architect</span>
+                            </div>
+                            <button class="project-detail-btn text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-600 text-sm font-medium">
+                                View Migration Plan <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+        
+        <!-- View All Button -->
+        <div class="text-center mt-12">
+            <button class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all transform hover:scale-105">
+                <i class="fas fa-server mr-2"></i> View All Platform Projects
+            </button>
+        </div>
+    </div>
+</section>
+
+<style>
+    .tech-tag {
+        @apply px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-full;
+    }
+    .project-card {
+        @apply transition-all duration-300;
+    }
+    .project-detail-btn {
+        @apply transition-all duration-300 transform hover:translate-x-1;
+    }
+    .filter-btn.active {
+        @apply bg-blue-600 text-white;
+    }
+</style>
+
+<script>
+    // Filter functionality would be implemented with JavaScript
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-categories').includes(filterValue)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Initialize with 'all' filter active
+        document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+    });
+</script>
 
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-gray-100">
@@ -353,31 +634,31 @@
                     <div class="space-y-4">
                         <div class="flex items-center">
                             <i class="fas fa-envelope text-blue-600 mr-4 text-xl"></i>
-                            <span class="text-gray-600">your.email@example.com</span>
+                            <span class="text-gray-600">pacankur@gmail.com</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-phone text-blue-600 mr-4 text-xl"></i>
-                            <span class="text-gray-600">+1 (123) 456-7890</span>
+                            <span class="text-gray-600">+91 9986373345</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-map-marker-alt text-blue-600 mr-4 text-xl"></i>
-                            <span class="text-gray-600">San Francisco, CA</span>
+                            <span class="text-gray-600"> New Delhi, India </span>
                         </div>
                     </div>
                     <div class="mt-8">
                         <h4 class="text-xl font-medium text-gray-700 mb-4">Follow Me</h4>
                         <div class="flex space-x-4">
                             <a href="#" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition duration-300">
-                                <i class="fab fa-linkedin-in"></i>
+                                <i class="https://www.linkedin.com/in/ankur-pachauri-006/"></i>
                             </a>
                             <a href="#" class="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-900 transition duration-300">
-                                <i class="fab fa-github"></i>
+                                <i class="https://github.com/ankur-pack"></i>
                             </a>
                             <a href="#" class="bg-blue-400 text-white p-3 rounded-full hover:bg-blue-500 transition duration-300">
-                                <i class="fab fa-twitter"></i>
+                                <i class="https://tatva360ai.store.shoopy.in/"></i>
                             </a>
                             <a href="#" class="bg-pink-600 text-white p-3 rounded-full hover:bg-pink-700 transition duration-300">
-                                <i class="fab fa-instagram"></i>
+                                <i class="https://www.instagram.com/tatva360.ai/"></i>
                             </a>
                         </div>
                     </div>
@@ -412,8 +693,8 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
-                    <h3 class="text-xl font-bold">[Your Name]</h3>
-                    <p class="text-gray-400">Web Developer & Designer</p>
+                    <h3 class="text-xl font-bold">ANKUR PACHAURI</h3>
+                    <p class="text-gray-400">TECH LEAD: CLOUD|DATA-PLATFORM|AI|QUALITY & EM/PM|PRODUCT|SCRUM : RELEASE | DELIVERY | SUPPORT</p>
                 </div>
                 <div class="flex space-x-4">
                     <a href="#" class="text-gray-400 hover:text-white transition duration-300">
