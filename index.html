@@ -3,44 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ankur Pachauri - Engineering & Project Manager</title>
+    <title>Ankur Pachauri - AI/Data/Cloud Leader</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <style>
-        /* Custom CSS for animations and effects */
-        .profile-img {
-            transition: transform 0.3s ease;
+        /* Enhanced animations */
+        .role-pill {
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
-        .profile-img:hover {
-            transform: scale(1.05);
+        .role-pill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .skill-bar {
-            transition: width 1.5s ease-in-out;
-        }
-        .project-card {
+        .competency-card {
             transition: all 0.3s ease;
         }
-        .project-card:hover {
-            transform: translateY(-5px);
+        .competency-card:hover {
+            transform: scale(1.03);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .flip-card {
+            perspective: 1000px;
         }
-        .fade-in {
-            animation: fadeIn 1s ease-in;
+        .flip-card-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
         }
-        .mobile-menu {
-            display: none;
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
         }
-        .mobile-menu.active {
-            display: block;
+        .flip-card-front, .flip-card-back {
+            backface-visibility: hidden;
         }
-        .dark-mode {
-            background-color: #1a202c;
-            color: #f7fafc;
+        .flip-card-back {
+            transform: rotateY(180deg);
         }
     </style>
 </head>
@@ -59,42 +57,11 @@
                 <div class="hidden md:flex items-center space-x-1">
                     <a href="#home" class="py-4 px-2 text-blue-600 font-semibold">Home</a>
                     <a href="#about" class="py-4 px-2 text-gray-500 hover:text-blue-600 transition duration-300">About</a>
-                    <a href="#skills" class="py-4 px-2 text-gray-500 hover:text-blue-600 transition duration-300">Skills</a>
+                    <a href="#competencies" class="py-4 px-2 text-gray-500 hover:text-blue-600 transition duration-300">Competencies</a>
                     <a href="#projects" class="py-4 px-2 text-gray-500 hover:text-blue-600 transition duration-300">Projects</a>
                     <a href="#contact" class="py-4 px-2 text-gray-500 hover:text-blue-600 transition duration-300">Contact</a>
-                    <button id="theme-toggle" class="p-2 text-gray-500 hover:text-blue-600">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button class="outline-none mobile-menu-button" id="mobile-menu-button">
-                        <svg class="w-6 h-6 text-gray-500" 
-                            fill="none"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
                 </div>
             </div>
-        </div>
-        <div class="mobile-menu hidden" id="mobile-menu">
-            <ul class="">
-                <li><a href="#home" class="block text-sm px-2 py-4 hover:bg-blue-500 hover:text-white transition duration-300">Home</a></li>
-                <li><a href="#about" class="block text-sm px-2 py-4 hover:bg-blue-500 hover:text-white transition duration-300">About</a></li>
-                <li><a href="#skills" class="block text-sm px-2 py-4 hover:bg-blue-500 hover:text-white transition duration-300">Skills</a></li>
-                <li><a href="#projects" class="block text-sm px-2 py-4 hover:bg-blue-500 hover:text-white transition duration-300">Projects</a></li>
-                <li><a href="#contact" class="block text-sm px-2 py-4 hover:bg-blue-500 hover:text-white transition duration-300">Contact</a></li>
-                <li>
-                    <button id="mobile-theme-toggle" class="block text-sm px-2 py-4 hover:bg-blue-500 hover:text-white transition duration-300 w-full text-left">
-                        <i class="fas fa-moon mr-2"></i>Toggle Theme
-                    </button>
-                </li>
-            </ul>
         </div>
     </nav>
 
@@ -102,15 +69,29 @@
     <section id="home" class="py-20 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
         <div class="container mx-auto px-6 text-center">
             <div class="flex flex-col md:flex-row items-center justify-center">
-                <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
+                <div class="md:w-1/2 mb-10 md:mb-0">
                     <img src="https://media.licdn.com/dms/image/v2/D4D03AQH-ZTgT_K6DmQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1679391997186?e=2147483647&v=beta&t=fCEVsIytm-IKxFClcM8f_u2CxXXXWsHKB5GavNrSFoI" 
                          alt="Ankur Pachauri" 
                          class="rounded-full w-64 h-64 object-cover mx-auto profile-img shadow-xl border-4 border-white">
                 </div>
-                <div class="md:w-1/2 md:pl-12 fade-in">
+                <div class="md:w-1/2 md:pl-12">
                     <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="text-yellow-300">Ankur Pachauri</span></h1>
-                    <h2 class="text-2xl md:text-3xl mb-6">Engineering & Project Manager <span id="typed" class="font-bold"></span></h2>
-                    <p class="text-lg mb-8">15 years experience in digital transformation, QA/DevOps strategy, and cloud infrastructure delivery.</p>
+                    <h2 class="text-2xl md:text-3xl mb-6"><span id="typed" class="font-bold"></span></h2>
+                    <p class="text-lg mb-8">Transformative Leader at the intersection of AI, Data & Cloud solutions</p>
+                    
+                    <!-- Role Selector Pills -->
+                    <div class="flex flex-wrap justify-center gap-3 mb-8">
+                        <div class="role-pill bg-white/20 px-4 py-2 rounded-full hover:bg-white/30" data-role="engineering">
+                            <i class="fas fa-code mr-2"></i> Engineering View
+                        </div>
+                        <div class="role-pill bg-white/20 px-4 py-2 rounded-full hover:bg-white/30" data-role="product">
+                            <i class="fas fa-chart-line mr-2"></i> Product View
+                        </div>
+                        <div class="role-pill bg-white/20 px-4 py-2 rounded-full hover:bg-white/30" data-role="leadership">
+                            <i class="fas fa-users mr-2"></i> Leadership View
+                        </div>
+                    </div>
+                    
                     <div class="flex justify-center space-x-4">
                         <a href="#contact" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300">Hire Me</a>
                         <a href="#projects" class="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition duration-300">View Work</a>
@@ -121,52 +102,39 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white dark:bg-gray-800">
+    <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">Professional Profile</h2>
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Professional Profile</h2>
             <div class="flex flex-col md:flex-row">
                 <div class="md:w-1/2 mb-10 md:mb-0">
-                    <h3 class="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-4">Career Summary</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                        Tech Engineering & Project Manager with 15 years of experience leading digital transformation, QA and DevOps strategy, 
-                        cloud infrastructure delivery, and full product lifecycle ownership. Proven success in managing technical RFPs, 
-                        customer demos, and pre-sales engagements.
+                    <h3 class="text-2xl font-semibold text-gray-700 mb-4">Career Summary</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Passionate about driving innovation across product and engineering domains through cloud-native, data-powered solutions. 
+                        With expertise spanning technical execution and strategic product vision, I bridge the gap between complex systems and business outcomes.
                     </p>
-                    <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                        Hands-on with data center validation setups, SRE best practices, microservices QA, and AI-based platform delivery. 
-                        Demonstrated ability to drive enterprise initiatives across domains like e-commerce, marketing automation, storage, 
-                        and loyalty platforms.
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Tech leader with 15+ years experience in digital transformation, cloud infrastructure delivery, and full product lifecycle ownership.
+                        Proven success in managing technical RFPs, customer demos, and pre-sales engagements across AI/Data/Cloud domains.
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-600">
-                            <i class="fab fa-github fa-2x"></i>
-                        </a>
-                        <a href="#" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-600">
-                            <i class="fab fa-linkedin fa-2x"></i>
-                        </a>
-                        <a href="#" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-600">
-                            <i class="fab fa-twitter fa-2x"></i>
-                        </a>
-                    </div>
                 </div>
                 <div class="md:w-1/2 md:pl-12">
-                    <h3 class="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-4">Core Competencies</h3>
+                    <h3 class="text-2xl font-semibold text-gray-700 mb-4">What I Bring</h3>
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
-                            <h4 class="font-medium text-gray-800 dark:text-white mb-2">Project Delivery</h4>
-                            <p class="text-gray-600 dark:text-gray-300 text-sm">Agile/Scrum • Stakeholder Alignment • Release Governance</p>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h4 class="font-medium text-gray-800 mb-2">AI Integration</h4>
+                            <p class="text-gray-600 text-sm">ML models • Predictive analytics • GenAI solutions</p>
                         </div>
-                        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
-                            <h4 class="font-medium text-gray-800 dark:text-white mb-2">Cloud & Data</h4>
-                            <p class="text-gray-600 dark:text-gray-300 text-sm">Azure • AWS • GCP • Databricks • Snowflake</p>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h4 class="font-medium text-gray-800 mb-2">Data Strategy</h4>
+                            <p class="text-gray-600 text-sm">Real-time analytics • Big data pipelines • BI</p>
                         </div>
-                        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
-                            <h4 class="font-medium text-gray-800 dark:text-white mb-2">Engineering Practices</h4>
-                            <p class="text-gray-600 dark:text-gray-300 text-sm">SRE • CI/CD • QA Automation • API/Performance Testing</p>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h4 class="font-medium text-gray-800 mb-2">Cloud Architecture</h4>
+                            <p class="text-gray-600 text-sm">AWS/Azure/GCP • Cost optimization • IaC</p>
                         </div>
-                        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
-                            <h4 class="font-medium text-gray-800 dark:text-white mb-2">Solutioning</h4>
-                            <p class="text-gray-600 dark:text-gray-300 text-sm">RFP Ownership • Technical Proposals • Customer Demos</p>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h4 class="font-medium text-gray-800 mb-2">Cross-Functional</h4>
+                            <p class="text-gray-600 text-sm">Product • Engineering • Leadership</p>
                         </div>
                     </div>
                 </div>
@@ -174,515 +142,269 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-gray-100 dark:bg-gray-900">
+    <!-- Competencies Section -->
+    <section id="competencies" class="py-20 bg-gray-100">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">Professional Experience</h2>
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Core Competencies</h2>
+            <p class="text-xl text-center text-gray-600 mb-12">The AI/Data/Cloud Triad</p>
             
-            <!-- PAR Experience -->
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
-                <div class="flex flex-col md:flex-row justify-between">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Technology Lead & PM — Big Data & AI</h3>
-                        <p class="text-gray-600 dark:text-gray-300">PAR | Sep 2023 – Present</p>
-                    </div>
-                    <div class="mt-4 md:mt-0">
-                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full dark:bg-blue-900 dark:text-blue-200">AWS</span>
-                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full dark:bg-blue-900 dark:text-blue-200">Azure</span>
-                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full dark:bg-blue-900 dark:text-blue-200">Snowflake</span>
-                    </div>
-                </div>
-                <ul class="mt-4 space-y-2 text-gray-600 dark:text-gray-300 list-disc pl-5">
-                    <li>Spearheaded development of a loyalty data platform, processing 10M+ daily events with 99.9% SLA</li>
-                    <li>Managed end-to-end delivery of AI MVPs for churn prediction and customer segmentation, improving marketing ROI by 20%</li>
-                    <li>Led migration to Snowflake and dashboard modernization with Tableau, reducing reporting latency by 40%</li>
-                    <li>Built and maintained real-time monitoring dashboards using NRQL, Grafana, Prometheus, and Observe</li>
-                </ul>
-            </div>
-            
-            <!-- HPE Experience -->
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
-                <div class="flex flex-col md:flex-row justify-between">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Lead Product Specialist</h3>
-                        <p class="text-gray-600 dark:text-gray-300">HPE (Hewlett Packard Enterprise) | Apr 2016 – Sep 2023</p>
-                    </div>
-                    <div class="mt-4 md:mt-0">
-                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full dark:bg-blue-900 dark:text-blue-200">HPE GreenLake</span>
-                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full dark:bg-blue-900 dark:text-blue-200">GenAI</span>
-                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full dark:bg-blue-900 dark:text-blue-200">CI/CD</span>
-                    </div>
-                </div>
-                <ul class="mt-4 space-y-2 text-gray-600 dark:text-gray-300 list-disc pl-5">
-                    <li>Led large-scale enterprise delivery for HPE GreenLake and Ezmeral, coordinating with global dev/test ops</li>
-                    <li>Delivered RFP responses and conducted technical pre-sales engagements for AI/analytics platforms</li>
-                    <li>Owned deployment of GenAI-driven analytics across enterprise environments</li>
-                    <li>Directed CI/CD pipeline modernization and established QA governance across hybrid cloud</li>
-                </ul>
-            </div>
-            
-            <!-- Previous Experience -->
-            <div class="text-center">
-                <button id="show-more-exp" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-600 font-medium">
-                    View Previous Experience <i class="fas fa-chevron-down ml-1"></i>
-                </button>
-                <div id="more-exp" class="hidden mt-6">
-                    <!-- InfoBeans Experience -->
-                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
-                        <div class="flex flex-col md:flex-row justify-between">
-                            <div>
-                                <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Module Lead – Storage Integration (NetApp)</h3>
-                                <p class="text-gray-600 dark:text-gray-300">InfoBeans | Nov 2015 – Mar 2016</p>
-                            </div>
-                        </div>
-                        <ul class="mt-4 space-y-2 text-gray-600 dark:text-gray-300 list-disc pl-5">
-                            <li>Defined HLD, migration, and integration documentation for NetApp storage</li>
-                            <li>Managed timelines, scope, documentation, and lab setup for validation with client engineering teams</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Harman Experience -->
-                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
-                        <div class="flex flex-col md:flex-row justify-between">
-                            <div>
-                                <h3 class="text-xl font-semibold text-gray-800 dark:text-white">QA Delivery Lead</h3>
-                                <p class="text-gray-600 dark:text-gray-300">Harman Connected Services | Jul 2014 – Oct 2015</p>
-                            </div>
-                        </div>
-                        <ul class="mt-4 space-y-2 text-gray-600 dark:text-gray-300 list-disc pl-5">
-                            <li>Delivered SSD analytics platform in collaboration with startup Avalanche</li>
-                            <li>Managed QA, performance, and API testing sprints with continuous delivery using Jenkins pipelines</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-white dark:bg-gray-800">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">Technical Expertise</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Cloud Platforms -->
-                <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-4 flex items-center">
-                        <i class="fas fa-cloud mr-3 text-blue-500"></i> Cloud Platforms
-                    </h3>
-                    <div class="space-y-3">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-700 dark:text-gray-300">Microsoft Azure</span>
-                                <span class="text-gray-600 dark:text-gray-400">90%</span>
+                <!-- AI-Powered Decision Making -->
+                <div class="competency-card flip-card">
+                    <div class="flip-card-inner h-full">
+                        <div class="flip-card-front bg-white p-6 rounded-lg shadow-md h-full">
+                            <div class="text-center mb-4">
+                                <i class="fas fa-brain text-4xl text-purple-500 mb-3"></i>
+                                <h3 class="text-xl font-bold text-gray-800">AI-Powered Decision Making</h3>
                             </div>
-                            <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-600">
-                                <div class="bg-blue-600 h-2.5 rounded-full skill-bar" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-700 dark:text-gray-300">AWS</span>
-                                <span class="text-gray-600 dark:text-gray-400">85%</span>
-                            </div>
-                            <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-600">
-                                <div class="bg-blue-600 h-2.5 rounded-full skill-bar" style="width: 85%"></div>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>Implement ML models for predictive analytics</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>AI-driven automation (test case generation)</span>
+                                </li>
+                            </ul>
+                            <div class="mt-4 text-center">
+                                <span class="inline-block px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Hover to flip</span>
                             </div>
                         </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-700 dark:text-gray-300">Google Cloud</span>
-                                <span class="text-gray-600 dark:text-gray-400">80%</span>
-                            </div>
-                            <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-600">
-                                <div class="bg-blue-600 h-2.5 rounded-full skill-bar" style="width: 80%"></div>
-                            </div>
+                        <div class="flip-card-back bg-purple-600 text-white p-6 rounded-lg shadow-md h-full flex flex-col justify-center">
+                            <h4 class="text-xl font-bold mb-3">Technical Depth</h4>
+                            <ul class="space-y-2">
+                                <li>OpenAI integrations</li>
+                                <li>AWS Bedrock</li>
+                                <li>Vector databases</li>
+                                <li>Anomaly detection</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Data & Analytics -->
-                <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-4 flex items-center">
-                        <i class="fas fa-database mr-3 text-green-500"></i> Data & Analytics
-                    </h3>
-                    <div class="space-y-3">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-700 dark:text-gray-300">Snowflake</span>
-                                <span class="text-gray-600 dark:text-gray-400">90%</span>
+                <!-- Data-Centric Optimization -->
+                <div class="competency-card flip-card">
+                    <div class="flip-card-inner h-full">
+                        <div class="flip-card-front bg-white p-6 rounded-lg shadow-md h-full">
+                            <div class="text-center mb-4">
+                                <i class="fas fa-database text-4xl text-blue-500 mb-3"></i>
+                                <h3 class="text-xl font-bold text-gray-800">Data-Centric Optimization</h3>
                             </div>
-                            <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-600">
-                                <div class="bg-green-500 h-2.5 rounded-full skill-bar" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-700 dark:text-gray-300">Databricks</span>
-                                <span class="text-gray-600 dark:text-gray-400">85%</span>
-                            </div>
-                            <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-600">
-                                <div class="bg-green-500 h-2.5 rounded-full skill-bar" style="width: 85%"></div>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>Big data pipelines → actionable insights</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>Real-time analytics integration</span>
+                                </li>
+                            </ul>
+                            <div class="mt-4 text-center">
+                                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Hover to flip</span>
                             </div>
                         </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-700 dark:text-gray-300">Tableau</span>
-                                <span class="text-gray-600 dark:text-gray-400">80%</span>
-                            </div>
-                            <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-600">
-                                <div class="bg-green-500 h-2.5 rounded-full skill-bar" style="width: 80%"></div>
-                            </div>
+                        <div class="flip-card-back bg-blue-600 text-white p-6 rounded-lg shadow-md h-full flex flex-col justify-center">
+                            <h4 class="text-xl font-bold mb-3">Technical Depth</h4>
+                            <ul class="space-y-2">
+                                <li>Spark/Kafka/Snowflake</li>
+                                <li>Tableau/DataIKU</li>
+                                <li>Data-informed improvements</li>
+                                <li>DataIKU certified</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
                 
-                <!-- DevOps & SRE -->
-                <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-4 flex items-center">
-                        <i class="fas fa-server mr-3 text-purple-500"></i> DevOps & SRE
-                    </h3>
-                    <div class="space-y-3">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-700 dark:text-gray-300">CI/CD Pipelines</span>
-                                <span class="text-gray-600 dark:text-gray-400">95%</span>
+                <!-- Cloud-Native Excellence -->
+                <div class="competency-card flip-card">
+                    <div class="flip-card-inner h-full">
+                        <div class="flip-card-front bg-white p-6 rounded-lg shadow-md h-full">
+                            <div class="text-center mb-4">
+                                <i class="fas fa-cloud text-4xl text-green-500 mb-3"></i>
+                                <h3 class="text-xl font-bold text-gray-800">Cloud-Native Excellence</h3>
                             </div>
-                            <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-600">
-                                <div class="bg-purple-500 h-2.5 rounded-full skill-bar" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-700 dark:text-gray-300">Monitoring (Grafana)</span>
-                                <span class="text-gray-600 dark:text-gray-400">90%</span>
-                            </div>
-                            <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-600">
-                                <div class="bg-purple-500 h-2.5 rounded-full skill-bar" style="width: 90%"></div>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>Cost-optimized architectures</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>Event-driven systems</span>
+                                </li>
+                            </ul>
+                            <div class="mt-4 text-center">
+                                <span class="inline-block px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Hover to flip</span>
                             </div>
                         </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-700 dark:text-gray-300">QA Automation</span>
-                                <span class="text-gray-600 dark:text-gray-400">85%</span>
-                            </div>
-                            <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-600">
-                                <div class="bg-purple-500 h-2.5 rounded-full skill-bar" style="width: 85%"></div>
-                            </div>
+                        <div class="flip-card-back bg-green-600 text-white p-6 rounded-lg shadow-md h-full flex flex-col justify-center">
+                            <h4 class="text-xl font-bold mb-3">Technical Depth</h4>
+                            <ul class="space-y-2">
+                                <li>AWS/Azure/GCP</li>
+                                <li>DataPipeline/webhooks</li>
+                                <li>Terraform & Kubernetes</li>
+                                <li>SLA/SLO management</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Tools & Certifications -->
-            <div class="mt-12">
-                <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-6 text-center">Tools & Certifications</h3>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <div class="flex flex-col items-center">
-                        <i class="fab fa-jenkins text-4xl text-red-500 mb-2"></i>
-                        <span class="text-gray-600 dark:text-gray-300">Jenkins</span>
+            <!-- Cross-Functional Impact -->
+            <div class="mt-16 bg-white p-8 rounded-xl shadow-md">
+                <h3 class="text-2xl font-bold text-center text-gray-800 mb-6">Cross-Functional Impact</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">For Engineering</h4>
+                        <p class="text-gray-600">DevOps automation (CI/CD, observability)</p>
                     </div>
-                    <div class="flex flex-col items-center">
-                        <i class="fas fa-certificate text-4xl text-yellow-500 mb-2"></i>
-                        <span class="text-gray-600 dark:text-gray-300">PMP</span>
+                    <div class="border-l-4 border-purple-500 pl-4">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">For Product</h4>
+                        <p class="text-gray-600">Translating data insights into roadmap priorities. Act as PO/SM</p>
                     </div>
-                    <div class="flex flex-col items-center">
-                        <i class="fas fa-robot text-4xl text-blue-400 mb-2"></i>
-                        <span class="text-gray-600 dark:text-gray-300">SAFe</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <i class="fas fa-chart-bar text-4xl text-green-500 mb-2"></i>
-                        <span class="text-gray-600 dark:text-gray-300">Six Sigma</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <i class="fas fa-brain text-4xl text-purple-500 mb-2"></i>
-                        <span class="text-gray-600 dark:text-gray-300">Prompt Eng</span>
+                    <div class="border-l-4 border-green-500 pl-4">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">For Both</h4>
+                        <p class="text-gray-600">SLA/SLO-driven execution with tools like New Relic/Grafana</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-<!-- Projects Section - Innovative Redesign -->
-<section id="projects" class="py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
-    <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-bold text-center text-gray-800 dark:text-white mb-4">Data Platform Innovations</h2>
-        <p class="text-xl text-center text-gray-600 dark:text-gray-300 mb-12">Architecting scalable solutions at the intersection of data and AI</p>
-        
-        <!-- Interactive Filter -->
-        <div class="flex flex-wrap justify-center gap-4 mb-12">
-            <button class="filter-btn px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-all" data-filter="all">All Projects</button>
-            <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all" data-filter="ai">AI/ML</button>
-            <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all" data-filter="cloud">Cloud Migration</button>
-            <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all" data-filter="data">Data Pipelines</button>
-        </div>
-
-        <!-- Project Grid with Enhanced Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
-            <!-- Loyalty Data Platform -->
-            <div class="project-card group" data-categories="ai cloud data">
-                <div class="h-full bg-white dark:bg-gray-800 rounded-xl shadow-xl overflow-hidden transform transition-all duration-500 hover:shadow-2xl">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                             alt="Loyalty Data Platform" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4">
-                            <span class="inline-block px-3 py-1 bg-blue-600 text-white text-sm rounded-full">Flagship Project</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">Loyalty Data Platform</h3>
-                            <span class="text-xs text-gray-500 dark:text-gray-400">2023-Present</span>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">Scalable architecture processing 10M+ daily events with AI-powered recommendations</p>
-                        
-                        <!-- Metrics Visualization -->
-                        <div class="mb-4">
-                            <div class="flex justify-between text-sm text-gray-500 dark:text-gray-400 mb-1">
-                                <span>Throughput</span>
-                                <span>10M+ events/day</span>
-                            </div>
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag">Snowflake</span>
-                            <span class="tech-tag">Azure</span>
-                            <span class="tech-tag">Kafka</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">ML</span>
-                        </div>
-                        
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <i class="fas fa-user-tie text-blue-500 mr-2"></i>
-                                <span class="text-sm text-gray-600 dark:text-gray-300">Tech Lead</span>
-                            </div>
-                            <button class="project-detail-btn text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-600 text-sm font-medium">
-                                View Case Study <i class="fas fa-arrow-right ml-1"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Featured Projects</h2>
+            
+            <!-- Project Filter -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="project-filter px-4 py-2 rounded-full bg-blue-600 text-white" data-filter="all">All</button>
+                <button class="project-filter px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300" data-filter="ai">AI/ML</button>
+                <button class="project-filter px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300" data-filter="data">Data</button>
+                <button class="project-filter px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300" data-filter="cloud">Cloud</button>
             </div>
             
-            <!-- GenAI Dashboard Analytics -->
-            <div class="project-card group" data-categories="ai data">
-                <div class="h-full bg-white dark:bg-gray-800 rounded-xl shadow-xl overflow-hidden transform transition-all duration-500 hover:shadow-2xl">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                             alt="GenAI Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                <!-- Project 1 - AI -->
+                <div class="project-item bg-gray-50 rounded-xl overflow-hidden shadow-md" data-categories="ai">
+                    <div class="h-48 bg-gradient-to-r from-purple-500 to-indigo-600 flex items-center justify-center">
+                        <i class="fas fa-brain text-white text-6xl"></i>
                     </div>
                     <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">GenAI Dashboard Analytics</h3>
-                            <span class="text-xs text-gray-500 dark:text-gray-400">2021-2023</span>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">Natural language query interface for enterprise BI with automated insights</p>
-                        
-                        <!-- Innovation Highlight -->
-                        <div class="bg-blue-50 dark:bg-blue-900/30 p-3 rounded-lg mb-4">
-                            <div class="flex items-start">
-                                <i class="fas fa-lightbulb text-yellow-500 mt-1 mr-2"></i>
-                                <p class="text-sm text-gray-700 dark:text-gray-300">Pioneered GenAI integration reducing dashboard creation time by 65%</p>
-                            </div>
-                        </div>
-                        
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">AI Test Case Generator</h3>
+                        <p class="text-gray-600 mb-4">OpenAI-powered automation reducing test creation time by 70%</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag">Databricks</span>
-                            <span class="tech-tag">LLM</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Azure</span>
-                            <span class="tech-tag">PowerBI</span>
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">OpenAI</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Python</span>
+                            <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs">CI/CD</span>
                         </div>
-                        
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <i class="fas fa-chart-line text-purple-500 mr-2"></i>
-                                <span class="text-sm text-gray-600 dark:text-gray-300">Engineering Lead</span>
-                            </div>
-                            <button class="project-detail-btn text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-600 text-sm font-medium">
-                                View Architecture <i class="fas fa-arrow-right ml-1"></i>
-                            </button>
-                        </div>
+                        <button class="text-blue-600 hover:text-blue-800 font-medium">View Case Study →</button>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Cloud Migration to Snowflake -->
-            <div class="project-card group" data-categories="cloud data">
-                <div class="h-full bg-white dark:bg-gray-800 rounded-xl shadow-xl overflow-hidden transform transition-all duration-500 hover:shadow-2xl">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
-                             alt="Snowflake Migration" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                
+                <!-- Project 2 - Data -->
+                <div class="project-item bg-gray-50 rounded-xl overflow-hidden shadow-md" data-categories="data">
+                    <div class="h-48 bg-gradient-to-r from-blue-500 to-teal-600 flex items-center justify-center">
+                        <i class="fas fa-database text-white text-6xl"></i>
                     </div>
                     <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">Snowflake Cloud Migration</h3>
-                            <span class="text-xs text-gray-500 dark:text-gray-400">2023</span>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">Zero-downtime migration of ETL workflows with 40% reduction in reporting latency</p>
-                        
-                        <!-- Results Bar -->
-                        <div class="mb-4">
-                            <div class="flex justify-between text-sm mb-2">
-                                <span class="text-gray-600 dark:text-gray-300">Before: 1200ms</span>
-                                <span class="text-gray-600 dark:text-gray-300">After: 720ms</span>
-                            </div>
-                            <div class="relative pt-1">
-                                <div class="flex mb-2 items-center justify-between">
-                                    <div>
-                                        <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
-                                            -40% Latency
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200 dark:bg-gray-700">
-                                    <div style="width:100%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gray-400 dark:bg-gray-600"></div>
-                                    <div style="width:60%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"></div>
-                                </div>
-                            </div>
-                        </div>
-                        
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Real-time Analytics Pipeline</h3>
+                        <p class="text-gray-600 mb-4">10M+ daily events processed with 99.9% SLA</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag">Snowflake</span>
-                            <span class="tech-tag">DBT</span>
-                            <span class="tech-tag">Airflow</span>
-                            <span class="tech-tag">CI/CD</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Kafka</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Snowflake</span>
+                            <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs">Spark</span>
                         </div>
-                        
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <i class="fas fa-cloud-upload-alt text-blue-400 mr-2"></i>
-                                <span class="text-sm text-gray-600 dark:text-gray-300">Migration Architect</span>
-                            </div>
-                            <button class="project-detail-btn text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-600 text-sm font-medium">
-                                View Migration Plan <i class="fas fa-arrow-right ml-1"></i>
-                            </button>
+                        <button class="text-blue-600 hover:text-blue-800 font-medium">View Architecture →</button>
+                    </div>
+                </div>
+                
+                <!-- Project 3 - Cloud -->
+                <div class="project-item bg-gray-50 rounded-xl overflow-hidden shadow-md" data-categories="cloud">
+                    <div class="h-48 bg-gradient-to-r from-green-500 to-emerald-600 flex items-center justify-center">
+                        <i class="fas fa-cloud text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Cloud Cost Optimization</h3>
+                        <p class="text-gray-600 mb-4">40% reduction in cloud spend through automation</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">AWS</span>
+                            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">Terraform</span>
+                            <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs">Grafana</span>
                         </div>
+                        <button class="text-blue-600 hover:text-blue-800 font-medium">View Results →</button>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- View All Button -->
-        <div class="text-center mt-12">
-            <button class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all transform hover:scale-105">
-                <i class="fas fa-server mr-2"></i> View All Platform Projects
-            </button>
-        </div>
-    </div>
-</section>
-
-<style>
-    .tech-tag {
-        @apply px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-full;
-    }
-    .project-card {
-        @apply transition-all duration-300;
-    }
-    .project-detail-btn {
-        @apply transition-all duration-300 transform hover:translate-x-1;
-    }
-    .filter-btn.active {
-        @apply bg-blue-600 text-white;
-    }
-</style>
-
-<script>
-    // Filter functionality would be implemented with JavaScript
-    document.addEventListener('DOMContentLoaded', function() {
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
-        
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                button.classList.add('active');
-                
-                const filterValue = button.getAttribute('data-filter');
-                
-                projectCards.forEach(card => {
-                    if (filterValue === 'all' || card.getAttribute('data-categories').includes(filterValue)) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-        
-        // Initialize with 'all' filter active
-        document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
-    });
-</script>
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-gray-100">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Get In Touch</h2>
-            <div class="flex flex-col md:flex-row">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <h3 class="text-2xl font-semibold text-gray-700 mb-4">Contact Information</h3>
-                    <p class="text-gray-600 mb-6">Feel free to reach out to me for any questions or opportunities. I'll get back to you as soon as possible.</p>
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <i class="fas fa-envelope text-blue-600 mr-4 text-xl"></i>
-                            <span class="text-gray-600">pacankur@gmail.com</span>
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-gradient-to-br from-blue-500 to-indigo-600 p-8 text-white">
+                        <h3 class="text-2xl font-bold mb-4">Let's Connect</h3>
+                        <p class="mb-6">Interested in discussing AI, Data or Cloud opportunities? Reach out directly.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope mr-4 text-xl"></i>
+                                <span>pacankur@gmail.com</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone mr-4 text-xl"></i>
+                                <span>+91 9986373345</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt mr-4 text-xl"></i>
+                                <span>New Delhi, India</span>
+                            </div>
                         </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-phone text-blue-600 mr-4 text-xl"></i>
-                            <span class="text-gray-600">+91 9986373345</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-map-marker-alt text-blue-600 mr-4 text-xl"></i>
-                            <span class="text-gray-600"> New Delhi, India </span>
-                        </div>
-                    </div>
-                    <div class="mt-8">
-                        <h4 class="text-xl font-medium text-gray-700 mb-4">Follow Me</h4>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition duration-300">
-                                <i class="https://www.linkedin.com/in/ankur-pachauri-006/"></i>
-                            </a>
-                            <a href="#" class="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-900 transition duration-300">
-                                <i class="https://github.com/ankur-pack"></i>
-                            </a>
-                            <a href="#" class="bg-blue-400 text-white p-3 rounded-full hover:bg-blue-500 transition duration-300">
-                                <i class="https://tatva360ai.store.shoopy.in/"></i>
-                            </a>
-                            <a href="#" class="bg-pink-600 text-white p-3 rounded-full hover:bg-pink-700 transition duration-300">
-                                <i class="https://www.instagram.com/tatva360.ai/"></i>
-                            </a>
+                        <div class="mt-8">
+                            <h4 class="text-xl font-medium mb-4">Follow Me</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.linkedin.com/in/ankur-pachauri-006/" class="text-white hover:text-gray-200 text-2xl">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://github.com/ankur-pack" class="text-white hover:text-gray-200 text-2xl">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="md:w-1/2 md:pl-12">
-                    <form class="bg-white p-8 rounded-lg shadow-md">
-                        <div class="mb-4">
-                            <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
-                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div class="mb-4">
-                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div class="mb-4">
-                            <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
-                            <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div class="mb-6">
-                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">Send Message</button>
-                    </form>
+                    <div class="md:w-1/2 p-8">
+                        <form class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                                <select id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option>Job Opportunity</option>
+                                    <option>Consulting Inquiry</option>
+                                    <option>Speaking Engagement</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -693,11 +415,69 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
-                    <h3 class="text-xl font-bold">ANKUR PACHAURI</h3>
-                    <p class="text-gray-400">TECH LEAD: CLOUD|DATA-PLATFORM|AI|QUALITY & EM/PM|PRODUCT|SCRUM : RELEASE | DELIVERY | SUPPORT</p>
+                    <h3 class="text-xl font-bold">Ankur Pachauri</h3>
+                    <p class="text-gray-400">AI • Data • Cloud Leader</p>
                 </div>
-                <div class="flex space-x-4">
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                       
+                <div class="text-gray-400 text-sm">
+                    © 2025 All Rights Reserved
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Typed.js initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            var typed = new Typed('#typed', {
+                strings: [
+                    'AI/Data/Cloud Leader', 
+                    'Product & Engineering Strategist',
+                    'Transformative Technology Leader'
+                ],
+                typeSpeed: 50,
+                backSpeed: 30,
+                loop: true
+            });
+            
+            // Project filtering
+            const filters = document.querySelectorAll('.project-filter');
+            const projects = document.querySelectorAll('.project-item');
+            
+            filters.forEach(filter => {
+                filter.addEventListener('click', () => {
+                    // Update active filter
+                    filters.forEach(f => f.classList.remove('bg-blue-600', 'text-white'));
+                    filters.forEach(f => f.classList.add('bg-gray-200', 'hover:bg-gray-300'));
+                    filter.classList.add('bg-blue-600', 'text-white');
+                    filter.classList.remove('bg-gray-200', 'hover:bg-gray-300');
+                    
+                    const filterValue = filter.getAttribute('data-filter');
+                    
+                    // Filter projects
+                    projects.forEach(project => {
+                        if (filterValue === 'all' || project.getAttribute('data-categories').includes(filterValue)) {
+                            project.style.display = 'block';
+                        } else {
+                            project.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Role selector functionality
+            const rolePills = document.querySelectorAll('.role-pill');
+            
+            rolePills.forEach(pill => {
+                pill.addEventListener('click', () => {
+                    // Visual feedback
+                    rolePills.forEach(p => p.classList.remove('bg-white/30'));
+                    pill.classList.add('bg-white/30');
+                    
+                    // In a real implementation, you would update content based on role
+                    console.log('Switched to view: ' + pill.getAttribute('data-role'));
+                });
+            });
+        });
+    </script>
 </body>
 </html>
