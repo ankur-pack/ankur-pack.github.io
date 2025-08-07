@@ -3,516 +3,896 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ankur Pachauri - AI  Data Cloud Leader </title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <title>Tatva360.ai - AI-Powered Digital Solutions</title>
     <style>
-        /* Enhanced animations */
-        .role-pill {
-            transition: all 0.3s ease;
+        /* Base styles */
+        :root {
+            --primary: #003366; /* Dark Blue */
+            --secondary: #FFCC00; /* Gold/Yellow */
+            --accent: #CC3366; /* Raspberry */
+            --text-dark: #1e293b;
+            --text-light: #475569;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
             cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .role-pill:hover {
+
+        .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
         }
-        .competency-card {
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(5px);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo img {
+            height: 50px; /* Adjust height as needed */
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            transition: all 0.5s ease;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-dark);
             transition: all 0.3s ease;
         }
-        .competency-card:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+        /* Hero */
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 120px 0 100px;
+            background: radial-gradient(circle at top left, var(--secondary) 0%, transparent 50%),
+                        radial-gradient(circle at bottom right, var(--primary) 0%, transparent 50%),
+                        var(--bg-light);
+            background-size: 80% 80%;
+            background-position: top left, bottom right;
+            background-repeat: no-repeat;
+            animation: backgroundPan 10s infinite alternate ease-in-out;
         }
-        .flip-card {
-            perspective: 1000px;
+
+        @keyframes backgroundPan {
+            0% { background-position: top left, bottom right; }
+            100% { background-position: top right, bottom left; }
         }
-        .flip-card-inner {
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
+
+        .hero h1 {
+            font-size: 48px; /* Smaller heading */
+            margin-bottom: 24px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            animation: textReveal 1s ease-in-out;
         }
-        .flip-card:hover .flip-card-inner {
-            transform: rotateY(180deg);
+
+        @keyframes textReveal {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
-        .flip-card-front, .flip-card-back {
-            backface-visibility: hidden;
+
+        .hero p {
+            font-size: 20px; /* Slightly smaller paragraph */
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            animation: textReveal 1.2s ease-in-out;
         }
-        .flip-card-back {
-            transform: rotateY(180deg);
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            animation: textReveal 1.4s ease-in-out;
+        }
+
+        /* Sections */
+        .section {
+            padding: 100px 0;
+            position: relative;
+            z-index: 1;
+            transition: all 1s ease;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .section.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-white {
+            background-color: var(--bg-white);
+        }
+
+        .section-light {
+            background-color: var(--bg-light);
+            clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%);
+            margin-top: -80px;
+            padding-top: 180px;
+            padding-bottom: 180px;
+        }
+
+        .section-light.why-us {
+            clip-path: polygon(0 0, 100% 8%, 100% 100%, 0 92%);
+            margin-top: -80px;
+            padding-top: 180px;
+            padding-bottom: 180px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 38px; /* Smaller heading */
+            margin-bottom: 16px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Cards and grids */
+        .card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            padding: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Services */
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            display: grid;
+            place-items: center;
+            color: white;
+            font-size: 30px;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .service-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .card h3 {
+            font-size: 22px; /* Smaller heading */
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        /* Projects */
+        .project-img {
+            height: 250px;
+            border-radius: 20px 20px 0 0;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .project-content {
+            padding: 30px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .tag {
+            background: rgba(0, 51, 102, 0.1); /* Primary color with opacity */
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Team */
+        .team-img {
+            height: 300px;
+            border-radius: 20px 20px 0 0;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .team-content {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .team-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        /* Why Us */
+        .why-us-grid .card {
+            text-align: center;
+        }
+
+        .why-us-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover .why-us-icon {
+            background-color: var(--secondary);
+            transform: scale(1.1) rotateY(180deg);
+        }
+        
+        /* Clients */
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+            justify-items: center;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .client-logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-align: center;
+            padding: 15px 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            background-color: var(--bg-white);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .client-logo:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            color: var(--primary);
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            padding: 40px;
+            background-color: var(--bg-white);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            margin-right: 20px;
+            font-size: 24px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-detail:hover {
+            transform: translateX(10px);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            font-family: inherit;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.2); /* Primary color with opacity */
+        }
+
+        textarea.form-input {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: #101620;
+            color: #d1d5db;
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-white);
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 10px 20px;
+                border-bottom: 1px solid #e2e8f0;
+            }
+
+            .nav-btn {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-50 font-sans">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between">
-                <div class="flex space-x-7">
-                    <div>
-                        <a href="#" class="flex items-center py-4 px-2 link-button">
-                        <img class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img logo sh-header-logo mui-rhsghg rounded-full w-14 h-14" src="https://img.cdnx.in/443833/logo-1749983888701.jpeg?height=200&format=webp" title="Tatva360.ai" alt="Tatva360.ai - Logo"></a></div>
-                        <div class="hidden md:flex items-center space-x-1">
-                        <a href="#home" class="py-4 px-2 text-blue-600 font-semibold">Home</a>
-                    </div>
-                <div class="hidden md:flex items-center space-x-1">
-                    <a href="#home" class="py-4 px-2 text-blue-600 font-semibold">Home</a>
-                    <a href="#about" class="py-4 px-2 text-gray-500 hover:text-blue-600 transition duration-300">About</a>
-                    <a href="#competencies" class="py-4 px-2 text-gray-500 hover:text-blue-600 transition duration-300">Competencies</a>
-                    <a href="#projects" class="py-4 px-2 text-gray-500 hover:text-blue-600 transition duration-300">Projects</a>
-                    <a href="#contact" class="py-4 px-2 text-gray-500 hover:text-blue-600 transition duration-300">Contact</a>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <!-- Updated logo to use the provided image -->
+                    <img src="logo.jpeg" alt="Tatva360.ai Logo">
+                </a>
+                <div class="nav-links">
+                    <a href="#">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#clients">Clients</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#team">Team</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <a href="#contact" class="nav-btn btn">Get Started</a>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Empowering businesses to innovate and lead with AI.</h1>
+            <p>From GenAI to predictive intelligence — Tatva360.ai builds future-ready solutions that drive real impact.</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn">Explore Our Solutions</a>
+                <a href="#contact" class="btn btn-outline">Connect With Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section section-white">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Journey</h2>
+                <p>Founded on October 23, 2020, and officially registered with the Government of India in 2025.</p>
+            </div>
+            <div class="card">
+                <h3>Driving Digital Excellence</h3>
+                <p>Tatva360.ai was established with a clear mission: to provide **AI-led digital solutions** that drive tangible value for enterprises and startups. Our name, "Tatva," signifies the fundamental essence, reflecting our commitment to uncovering core challenges and delivering impactful, data-driven solutions.</p>
+                <p>Under the leadership of our founders, Monika Sharma and Ankur Pachauri, we bring together profound expertise in artificial intelligence, machine learning, and advanced data analytics. We understand the unique needs of diverse sectors, including finance, healthcare, insurance, and more, enabling us to craft bespoke strategies.</p>
+                <p>Our team of dedicated professionals and our unwavering customer-first approach have positioned us as a trusted partner for businesses seeking to harness the power of AI for innovation, operational efficiency, and sustainable growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section section-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Core Offerings</h2>
+                <p>Delivering comprehensive AI, ML, and digital solutions tailored for every industry.</p>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <div class="service-icon">✨</div>
+                    <h3>Generative AI & Digital Transformation</h3>
+                    <p>Unlock new possibilities with custom **Generative AI** applications. From advanced LLM solutions (GPT, Claude, LLaMA, Mistral) to specialized RAG systems, we build intelligent chatbots and AI assistants that transform digital interactions and content creation across all domains. Drive your **digital transformation** with AI-powered automation and enhanced customer experiences.</p>
+                    <a href="#contact">Learn More →</a>
+                </div>
+                <div class="card">
+                    <div class="service-icon">📈</div>
+                    <h3>ML Modeling & Advanced Analytics</h3>
+                    <p>Turn your data into a strategic asset with our robust **ML modeling** and advanced analytics. We develop predictive models, powerful recommendation engines, and precise sales forecasting solutions, driving data-driven growth and operational excellence in any sector. Gain deep insights to optimize performance and make informed decisions.</p>
+                    <a href="#contact">Learn More →</a>
+                </div>
+                <div class="card">
+                    <div class="service-icon">🚀</div>
+                    <h3>AI for Sales, Marketing & Campaigns</h3>
+                    <p>Supercharge your growth with **AI-driven sales and marketing solutions**. We develop intelligent systems for lead generation, customer segmentation, personalized campaign optimization, and predictive churn analysis. Maximize ROI and build stronger customer relationships with data-backed strategies.</p>
+                    <a href="#contact">Learn More →</a>
+                </div>
+                <div class="card">
+                    <div class="service-icon">⚙️</div>
+                    <h3>AI-Powered Operations & QA</h3>
+                    <p>Streamline operations and enhance quality with **AI-powered solutions**. This includes automated **AI test case generation** for robust Quality Assurance, predictive maintenance for MCP servers, and comprehensive observability platforms. Ensure system reliability and efficiency across your infrastructure.</p>
+                    <a href="#contact">Learn More →</a>
                 </div>
             </div>
         </div>
-    </nav>
+    </section>
 
-    <!-- Hero Section -->
-    <section id="home" class="py-20 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
-        <div class="container mx-auto px-6 text-center">
-            <div class="flex flex-col md:flex-row items-center justify-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQH-ZTgT_K6DmQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1679391997186?e=2147483647&v=beta&t=fCEVsIytm-IKxFClcM8f_u2CxXXXWsHKB5GavNrSFoI" 
-                         alt="Ankur Pachauri" 
-                         class="rounded-full w-64 h-64 object-cover mx-auto profile-img shadow-xl border-4 border-white">
+    <!-- Why Choose Us -->
+    <section id="why-us" class="section section-white why-us">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Partner with Us?</h2>
+                <p>We combine deep technical expertise with a business-first mindset to deliver tangible results.</p>
+            </div>
+            <div class="grid why-us-grid">
+                <div class="card">
+                    <div class="why-us-icon">💡</div>
+                    <h3>Domain Expertise</h3>
+                    <p>Our solutions are crafted with a deep understanding of diverse industry challenges and opportunities.</p>
                 </div>
-                <div class="md:w-1/2 md:pl-12">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="text-yellow-300">Ankur Pachauri</span></h1>
-                    <h2 class="text-2xl md:text-3xl mb-6"><span id="typed" class="font-bold"></span></h2>
-                    <p class="text-lg mb-8">Transformative Leader at the intersection of AI, Data & Cloud solutions</p>
-                    
-                    <!-- Role Selector Pills -->
-                    <div class="flex flex-wrap justify-center gap-3 mb-8">
-                        <div class="role-pill bg-white/20 px-4 py-2 rounded-full hover:bg-white/30" data-role="engineering">
-                            <i class="fas fa-code mr-2"></i> Engineering View
+                <div class="card">
+                    <div class="why-us-icon">⚡</div>
+                    <h3>Rapid Innovation</h3>
+                    <p>We leverage agile methodologies to quickly deploy cutting-edge AI and ML solutions.</p>
+                </div>
+                <div class="card">
+                    <div class="why-us-icon">🎯</div>
+                    <h3>Results-Driven</h3>
+                    <p>Our focus is on delivering measurable impact and a strong return on your AI investment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients -->
+    <section id="clients" class="section section-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Valued Partnerships</h2>
+                <p>Trusted by leading organizations across diverse sectors.</p>
+            </div>
+            <div class="clients-grid">
+                <div class="client-logo">Government of India GST</div>
+                <div class="client-logo">Hewlett Packard Enterprise</div>
+                <div class="client-logo">Harman</div>
+                <div class="client-logo">PAR</div>
+                <div class="client-logo">1218 Global</div>
+                <div class="client-logo">McKinsey</div>
+                <div class="client-logo">Calsoft</div>
+                <div class="client-logo">Inforbeans</div>
+                <div class="client-logo">Netapp</div>
+                <div class="client-logo">Sony Ever Quest</div>
+                <div class="client-logo">THQ</div>
+                <div class="client-logo">Disney</div>
+                <div class="client-logo">Oracle</div>
+                <div class="client-logo">Peoplesoft</div>
+                <div class="client-logo">Tata Power</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section section-white">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Impactful Projects</h2>
+                <p>Showcasing our expertise in delivering innovative AI solutions across industries.</p>
+            </div>
+            <div class="grid">
+                <div class="card" style="padding: 0;">
+                    <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1551288049-6296d674c17b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop');"></div>
+                    <div class="project-content">
+                        <h3>Smart Document Search</h3>
+                        <div class="tags">
+                            <span class="tag">LLMs</span>
+                            <span class="tag">Vector DB</span>
+                            <span class="tag">RAG</span>
                         </div>
-                        <div class="role-pill bg-white/20 px-4 py-2 rounded-full hover:bg-white/30" data-role="product">
-                            <i class="fas fa-chart-line mr-2"></i> Product View
-                        </div>
-                        <div class="role-pill bg-white/20 px-4 py-2 rounded-full hover:bg-white/30" data-role="leadership">
-                            <i class="fas fa-users mr-2"></i> Leadership View
-                        </div>
+                        <p>Developed an advanced semantic search engine leveraging LLMs for enhanced document retrieval and analysis, improving search accuracy by 87%.</p>
+                        <a href="#contact">View Case Study →</a>
                     </div>
-                    
-                    <div class="flex justify-center space-x-4">
-                        <a href="#contact" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300"> Consultation </a>
-                        <a href="#projects" class="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition duration-300">View Work</a>
+                </div>
+                <div class="card" style="padding: 0;">
+                    <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1549241520-4357c37265a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop');"></div>
+                    <div class="project-content">
+                        <h3>Customer Loyalty AI</h3>
+                        <div class="tags">
+                            <span class="tag">Recommendation</span>
+                            <span class="tag">Big Data</span>
+                        </div>
+                        <p>Built an AI-driven loyalty engine processing over 10 million transactions daily, utilizing recommendation models to enhance sales by 23%.</p>
+                        <a href="#contact">View Case Study →</a>
+                    </div>
+                </div>
+                <div class="card" style="padding: 0;">
+                    <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1518623489868-e60d5b62b719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop');"></div>
+                    <div class="project-content">
+                        <h3>Strategic Impact AI</h3>
+                        <div class="tags">
+                            <span class="tag">Predictive Analytics</span>
+                            <span class="tag">NLP</span>
+                        </div>
+                        <p>Created a tool for assessing the impact of business strategies using machine learning models, enabling data-driven decision making.</p>
+                        <a href="#contact">View Case Study →</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Professional Profile</h2>
-            <div class="flex flex-col md:flex-row">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <h3 class="text-2xl font-semibold text-gray-700 mb-4">Career Summary</h3>
-                    <p class="text-gray-600 mb-4 leading-relaxed">
-                        As a transformative leader, I have a proven track record of driving innovation across product and engineering domains through cloud-native, data-powered solutions. 
-                        With 15+ years of experience in digital transformation, cloud infrastructure delivery, and full product lifecycle ownership, I possess the technical expertise and strategic vision to bridge the gap between complex systems and business outcomes.
-                    </p>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                         My cross-functional expertise allows me to seamlessly collaborate with engineering, product, and leadership teams to drive data-informed improvements and SLA/SLO-driven execution.
-                    </p>
+    <!-- Team -->
+    <section id="team" class="section section-white">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Visionary Leaders</h2>
+                <p>Meet the minds guiding Tatva360.ai's innovation.</p>
+            </div>
+            <div class="grid">
+                <div class="card" style="padding: 0;">
+                    <div class="team-img" style="background-image: url('https://images.unsplash.com/photo-1560250085-c54ff9531478?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop');"></div>
+                    <div class="team-content">
+                        <h3>Monika Sharma</h3>
+                        <div class="team-role">Founder & CEO</div>
+                        <p>An electronics engineer with an MBA in Finance, Monika is a GATE top 100 rank holder. Her extensive experience includes serving GST India as an Alliance Manager for Oracle and significant contributions in the Tata Power domain.</p>
+                    </div>
                 </div>
-                <div class="md:w-1/2 md:pl-12">
-                    <h3 class="text-2xl font-semibold text-gray-700 mb-4">What I Bring</h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-gray-100 p-4 rounded-lg">
-                            <h4 class="font-medium text-gray-800 mb-2">AI Integration</h4>
-                            <p class="text-gray-600 text-sm">ML models • Predictive analytics • GenAI solutions</p>
-                        </div>
-                        <div class="bg-gray-100 p-4 rounded-lg">
-                            <h4 class="font-medium text-gray-800 mb-2">Data Strategy</h4>
-                            <p class="text-gray-600 text-sm">Real-time analytics • Big data pipelines • BI</p>
-                        </div>
-                        <div class="bg-gray-100 p-4 rounded-lg">
-                            <h4 class="font-medium text-gray-800 mb-2">Cloud Architecture</h4>
-                            <p class="text-gray-600 text-sm">AWS/Azure/GCP • Cost optimization • IaC</p>
-                        </div>
-                        <div class="bg-gray-100 p-4 rounded-lg">
-                            <h4 class="font-medium text-gray-800 mb-2">Cross-Functional</h4>
-                            <p class="text-gray-600 text-sm">Product • Engineering • Leadership</p>
-                        </div>
+                <div class="card" style="padding: 0;">
+                    <div class="team-img" style="background-image: url('https://images.unsplash.com/photo-1555587786-88a29a4a7548?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop');"></div>
+                    <div class="team-content">
+                        <h3>Ankur Pachauri</h3>
+                        <div class="team-role">Co-founder & CTO</div>
+                        <p>With over 15 years in AI/ML leadership, Ankur brings a strong computer science background. He has spearheaded AI initiatives across diverse sectors including insurance, healthcare, finance, and various tech startups.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Competencies Section -->
-    <section id="competencies" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Core Competencies</h2>
-            <p class="text-xl text-center text-gray-600 mb-12">The AI/Data/Cloud Triad</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- AI-Powered Decision Making -->
-                <div class="competency-card flip-card">
-                    <div class="flip-card-inner h-full">
-                        <div class="flip-card-front bg-white p-6 rounded-lg shadow-md h-full">
-                            <div class="text-center mb-4">
-                                <i class="fas fa-brain text-4xl text-purple-500 mb-3"></i>
-                                <h3 class="text-xl font-bold text-gray-800">AI-Powered Decision Making</h3>
-                            </div>
-                            <ul class="space-y-2 text-gray-600">
-                                <li class="flex items-start">
-                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                                    <span>Implement ML models for predictive analytics</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                                    <span>AI-driven automation (test case generation)</span>
-                                </li>
-                            </ul>
-                            <div class="mt-4 text-center">
-                                <span class="inline-block px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Hover to flip</span>
-                            </div>
-                        </div>
-                        <div class="flip-card-back bg-purple-600 text-white p-6 rounded-lg shadow-md h-full flex flex-col justify-center">
-                            <h4 class="text-xl font-bold mb-3">Technical Depth</h4>
-                            <ul class="space-y-2">
-                                <li>GenAI</li>
-                                <li>ML Modeling</li>
-                                <li>LLMOPs</li>
-                                <li>Feedback Loops</li>
-                                <li>Recommendation  Engine</li>
-                                <li>Semantic Search</li>
-                                <li>Impact Analyser RAG</li>
-                                <li>Agentic</li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Data-Centric Optimization -->
-                <div class="competency-card flip-card">
-                    <div class="flip-card-inner h-full">
-                        <div class="flip-card-front bg-white p-6 rounded-lg shadow-md h-full">
-                            <div class="text-center mb-4">
-                                <i class="fas fa-database text-4xl text-blue-500 mb-3"></i>
-                                <h3 class="text-xl font-bold text-gray-800">Data-Centric Optimization</h3>
-                            </div>
-                            <ul class="space-y-2 text-gray-600">
-                                <li class="flex items-start">
-                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                                    <span>Big data pipelines → actionable insights</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                                    <span>Real-time analytics integration</span>
-                                </li>
-                            </ul>
-                            <div class="mt-4 text-center">
-                                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Hover to flip</span>
-                            </div>
-                        </div>
-                        <div class="flip-card-back bg-blue-600 text-white p-6 rounded-lg shadow-md h-full flex flex-col justify-center">
-                            <h4 class="text-xl font-bold mb-3">Technical Depth</h4>
-                            <ul class="space-y-2">
-                                <li>Cloud And Data</li>
-                                <li>AI Solution Architect</li>
-                                <li>Process Certification</li>
-                                <li>PMP</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Cloud-Native Excellence -->
-                <div class="competency-card flip-card">
-                    <div class="flip-card-inner h-full">
-                        <div class="flip-card-front bg-white p-6 rounded-lg shadow-md h-full">
-                            <div class="text-center mb-4">
-                                <i class="fas fa-cloud text-4xl text-green-500 mb-3"></i>
-                                <h3 class="text-xl font-bold text-gray-800">Cloud-Native Excellence</h3>
-                            </div>
-                            <ul class="space-y-2 text-gray-600">
-                                <li class="flex items-start">
-                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                                    <span>Cost-optimized architectures</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                                    <span>Event-driven systems</span>
-                                </li>
-                            </ul>
-                            <div class="mt-4 text-center">
-                                <span class="inline-block px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Hover to flip</span>
-                            </div>
-                        </div>
-                        <div class="flip-card-back bg-green-600 text-white p-6 rounded-lg shadow-md h-full flex flex-col justify-center">
-                            <h4 class="text-xl font-bold mb-3">Technical Depth</h4>
-                            <ul class="space-y-2">
-                                <li>Data Quality Framework</li>
-                                <li>Databricks</li>
-                                <li>Open Search, Solr</li>
-                                <li>SLA/SLO Ownership</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+    <!-- Contact -->
+    <section id="contact" class="section section-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get in Touch</h2>
+                <p>Let's discuss how our AI and ML expertise can transform your business.</p>
             </div>
-            
-            <!-- Cross-Functional Impact -->
-            <div class="mt-16 bg-white p-8 rounded-xl shadow-md">
-                <h3 class="text-2xl font-bold text-center text-gray-800 mb-6">Cross-Functional Impact</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="border-l-4 border-blue-500 pl-4">
-                        <h4 class="text-xl font-semibold text-gray-800 mb-2">For Engineering</h4>
-                        <p class="text-gray-600">DevOps automation (CI/CD, Observability)</p>
+            <div class="contact-grid">
+                <div class="card contact-info">
+                    <h3 style="margin-bottom: 30px;">Reach Out</h3>
+                    <div class="contact-detail">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4 style="font-weight: bold; margin-bottom: 8px;">Our Location</h4>
+                            <p>Delhi NCR, India</p>
+                        </div>
                     </div>
-                    <div class="border-l-4 border-purple-500 pl-4">
-                        <h4 class="text-xl font-semibold text-gray-800 mb-2">For Product</h4>
-                        <p class="text-gray-600">Translating data insights into roadmap priorities.AHA Integration</p>
+                    <div class="contact-detail">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <h4 style="font-weight: bold; margin-bottom: 8px;">Email Us</h4>
+                            <p><a href="mailto:info@tatva360.ai">info@tatva360.ai</a></p>
+                        </div>
                     </div>
-                    <div class="border-l-4 border-green-500 pl-4">
-                        <h4 class="text-xl font-semibold text-gray-800 mb-2">For Both</h4>
-                        <p class="text-gray-600">SLA/SLO-driven execution with tools like New Relic/Grafana</p>
+                    <div class="contact-detail">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <h4 style="font-weight: bold; margin-bottom: 8px;">Call Us</h4>
+                            <p>+91 9986373345</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Featured Projects</h2>
-            
-            <!-- Project Filter -->
-            <div class="flex flex-wrap justify-center gap-4 mb-12">
-                <button class="project-filter px-4 py-2 rounded-full bg-blue-600 text-white" data-filter="all">All</button>
-                <button class="project-filter px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300" data-filter="ai">AI/ML</button>
-                <button class="project-filter px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300" data-filter="data">Data</button>
-                <button class="project-filter px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300" data-filter="cloud">Cloud</button>
-            </div>
-            
-            <!-- Projects Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
-                <!-- Project 1 - AI -->
-                <div class="project-item bg-gray-50 rounded-xl overflow-hidden shadow-md" data-categories="ai">
-                    <div class="h-48 bg-gradient-to-r from-purple-500 to-indigo-600 flex items-center justify-center">
-                        <i class="fas fa-brain text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Semantic Search for Fraud Analytics: </h3>
-                        <p class="text-gray-600 mb-4">Implemented a semantic search solution to detect
-                            and analyse fraudulent activities using advanced NLP techniques. On 10K documents</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">OpenAI</span>
-                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Python</span>
-                            <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs">CI/CD</span>
+                <div class="card">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label class="form-label">Your Name</label>
+                            <input type="text" class="form-input" required>
                         </div>
-                </div>
-                <!-- Project 2 - Ai -->   
-                <div class="project-item bg-gray-50 rounded-xl overflow-hidden shadow-md" data-categories="ai">
-                    <div class="h-48 bg-gradient-to-r from-purple-500 to-indigo-600 flex items-center justify-center">
-                        <i class="fas fa-brain text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Recommendation Engine </h3>
-                        <p class="text-gray-600 mb-4"> Designed and developed a recommendation engine to
-                            enhance user experience and engagement through personalized content./p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">OpenAI</span>
-                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Python</span>
-                            <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs">CI/CD</span>
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-input" required>
                         </div>
-                        <button class="text-blue-600 hover:text-blue-800 font-medium">View Case Study →</button>
-                    </div>
-                </div>
-                <!-- Project 3 - Ai -->
-                <div class="project-item bg-gray-50 rounded-xl overflow-hidden shadow-md" data-categories="ai">
-                    <div class="h-48 bg-gradient-to-r from-purple-500 to-indigo-600 flex items-center justify-center">
-                        <i class="fas fa-brain text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">AI Test Case Generator</h3>
-                        <p class="text-gray-600 mb-4">OpenAI-powered automation reducing test creation time by 70%</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">OpenAI</span>
-                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Python</span>
-                            <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs">CI/CD</span>
+                        <div class="form-group">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-input" required></textarea>
                         </div>
-                        <button class="text-blue-600 hover:text-blue-800 font-medium">View Case Study →</button>
-                    </div>
-                </div>
-                
-                <!-- Project 4 - Data -->
-                <div class="project-item bg-gray-50 rounded-xl overflow-hidden shadow-md" data-categories="data">
-                    <div class="h-48 bg-gradient-to-r from-blue-500 to-teal-600 flex items-center justify-center">
-                        <i class="fas fa-database text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Real-time Analytics Pipeline for inference</h3>
-                        <p class="text-gray-600 mb-4">10M+ daily events processed with 99.9% SLA</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Kafka</span>
-                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Snowflake</span>
-                            <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs">Spark</span>
-                        </div>
-                        <button class="text-blue-600 hover:text-blue-800 font-medium">View Architecture →</button>
-                    </div>
-                </div>
-                
-                <!-- Project 3 - Cloud -->
-                <div class="project-item bg-gray-50 rounded-xl overflow-hidden shadow-md" data-categories="cloud">
-                    <div class="h-48 bg-gradient-to-r from-green-500 to-emerald-600 flex items-center justify-center">
-                        <i class="fas fa-cloud text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Cloud Cost Optimization</h3>
-                        <p class="text-gray-600 mb-4">40% reduction in cloud spend through automation</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">AWS</span>
-                            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">IAS_Terraform</span>
-                            <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs">Grafana</span>
-                        </div>
-                        <button class="text-blue-600 hover:text-blue-800 font-medium">View Results →</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Get In Touch</h2>
-            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
-                <div class="md:flex">
-                    <div class="md:w-1/2 bg-gradient-to-br from-blue-500 to-indigo-600 p-8 text-white">
-                        <h3 class="text-2xl font-bold mb-4">Let's Connect</h3>
-                        <p class="mb-6">Interested in discussing AI, Data or Cloud opportunities? Reach out directly.</p>
-                        <div class="space-y-4">
-                            <div class="flex items-center">
-                                <i class="fas fa-envelope mr-4 text-xl"></i>
-                                <span>pacankur@gmail.com</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-phone mr-4 text-xl"></i>
-                                <span>+91 9986373345</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-map-marker-alt mr-4 text-xl"></i>
-                                <span>New Delhi, India</span>
-                            </div>
-                        </div>
-                        <div class="mt-8">
-                            <h4 class="text-xl font-medium mb-4">Follow Me</h4>
-                            <div class="flex space-x-4">
-                                <a href="https://www.linkedin.com/in/ankur-pachauri-006/" class="text-white hover:text-gray-200 text-2xl">
-                                    <i class="fab fa-linkedin"></i>
-                                </a>
-                                <a href="https://github.com/ankur-pack" class="text-white hover:text-gray-200 text-2xl">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2 p-8">
-                        <form class="space-y-4">
-                            <div>
-                                <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
-                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            </div>
-                            <div>
-                                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            </div>
-                            <div>
-                                <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
-                                <select id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                    <option>Job Opportunity</option>
-                                    <option>Consulting Inquiry</option>
-                                    <option>Speaking Engagement</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
-                                Send Message
-                            </button>
-                        </form>
-                    </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <h3 class="text-xl font-bold">Ankur Pachauri</h3>
-                    <p class="text-gray-400">AI • Data • Cloud Leader</p>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 style="font-size: 24px; margin-bottom: 20px;">Tatva360.ai</h3>
+                    <p style="color: #9ca3af; margin-bottom: 20px;">Providing AI-led digital solutions to enterprises and startups since 2020.</p>
                 </div>
-                <div class="text-gray-400 text-sm">
-                    © 2025 All Rights Reserved
+                <div>
+                    <h3 style="font-size: 20px; margin-bottom: 20px;">Solutions</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Generative AI</a></li>
+                        <li><a href="#services">ML Modeling</a></li>
+                        <li><a href="#services">Digital Transformation</a></li>
+                        <li><a href="#services">AI Product Development</a></li>
+                        <li><a href="#services">Sales & Marketing AI</a></li>
+                        <li><a href="#services">AI-Powered QA</a></li>
+                        <li><a href="#services">Observability & MCP</a></li>
+                    </ul>
                 </div>
+                <div>
+                    <h3 style="font-size: 20px; margin-bottom: 20px;">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#clients">Clients</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Tatva360.ai. All rights reserved.
             </div>
         </div>
     </footer>
-
+    
     <script>
-        // Typed.js initialization
-        document.addEventListener('DOMContentLoaded', function() {
-            var typed = new Typed('#typed', {
-                strings: [
-                    'AI/Data/Cloud Leader', 
-                    'Product & Engineering Strategist',
-                    'Transformative Technology Leader'
-                ],
-                typeSpeed: 50,
-                backSpeed: 30,
-                loop: true
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Scroll-based animations
+        const sections = document.querySelectorAll('.section');
+        const options = {
+            threshold: 0.2
+        };
+        const observer = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
             });
-            
-            // Project filtering
-            const filters = document.querySelectorAll('.project-filter');
-            const projects = document.querySelectorAll('.project-item');
-            
-            filters.forEach(filter => {
-                filter.addEventListener('click', () => {
-                    // Update active filter
-                    filters.forEach(f => f.classList.remove('bg-blue-600', 'text-white'));
-                    filters.forEach(f => f.classList.add('bg-gray-200', 'hover:bg-gray-300'));
-                    filter.classList.add('bg-blue-600', 'text-white');
-                    filter.classList.remove('bg-gray-200', 'hover:bg-gray-300');
-                    
-                    const filterValue = filter.getAttribute('data-filter');
-                    
-                    // Filter projects
-                    projects.forEach(project => {
-                        if (filterValue === 'all' || project.getAttribute('data-categories').includes(filterValue)) {
-                            project.style.display = 'block';
-                        } else {
-                            project.style.display = 'none';
-                        }
-                    });
-                });
-            });
-            
-            // Role selector functionality
-            const rolePills = document.querySelectorAll('.role-pill');
-            
-            rolePills.forEach(pill => {
-                pill.addEventListener('click', () => {
-                    // Visual feedback
-                    rolePills.forEach(p => p.classList.remove('bg-white/30'));
-                    pill.classList.add('bg-white/30');
-                    
-                    // In a real implementation, you would update content based on role
-                    console.log('Switched to view: ' + pill.getAttribute('data-role'));
-                });
-            });
+        }, options);
+        sections.forEach(section => {
+            observer.observe(section);
         });
     </script>
 </body>
