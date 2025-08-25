@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ankur Pachauri - AI/ML Leadership Portfolio</title>
+  <title>Ankur Pachauri - AI/ML Leadership & Creative Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -91,17 +91,54 @@
       background: #00ff88;
       color: #111;
     }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .portfolio-item {
+      background: #222;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid #00d4ff;
+      transition: transform 0.3s;
+    }
+    .portfolio-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
+    }
+    .portfolio-item img {
+      max-width: 100%;
+      border-radius: 4px;
+    }
+    .skills-chart {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .skill {
+      background: #00d4ff;
+      color: #111;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>🚀 Ankur Pachauri | AI & ML Leadership</h1>
-    <p>Driving AI-led digital transformation across industries</p>
+    <h1>🚀 Ankur Pachauri | AI/ML Leadership & Creative Design</h1>
+    <p>Bridging technology and creativity through AI-powered solutions and intuitive design</p>
   </header>
 
   <nav>
     <a href="#about">About</a>
     <a href="#offerings">Offerings</a>
+    <a href="#content">Content</a>
+    <a href="#design">UI/UX</a>
     <a href="#snake">Snake Game</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -110,20 +147,67 @@
     <h2>About Me</h2>
     <p>Head of AI/ML & Data | 15+ years leadership | Expert in GenAI, ML Ops, and Enterprise AI. 
        Proven track record in building scalable AI products across healthcare, finance, retail, and insurance.</p>
+    <p>As a content creator and UI/UX designer, I specialize in translating complex technical concepts into engaging visual narratives and intuitive user experiences.</p>
   </section>
 
   <section id="offerings">
     <h2>Offerings</h2>
+    <div class="skills-chart">
+      <span class="skill">AI Strategy</span>
+      <span class="skill">Machine Learning</span>
+      <span class="skill">Generative AI</span>
+      <span class="skill">Technical Content</span>
+      <span class="skill">UI/UX Design</span>
+      <span class="skill">Data Visualization</span>
+    </div>
     <p>🔹 Healthcare AI (Predictive doctor visits, patient monitoring)<br>
-       🔹 Retail AI (Smart recommendations, demand forecasting)<br>
-       🔹 Finance (Risk scoring, fraud detection)<br>
+        🔹 Retail AI (Smart recommendations, demand forecasting)<br>
+        🔹 Finance (Risk scoring, fraud detection)<br>
        🔹 Insurance (Claims automation, anomaly detection)<br>
-       🔹 Manufacturing (Predictive maintenance, robotics)<br>
+        🔹 Manufacturing (Predictive maintenance, robotics)<br>
        🔹 AI Strategy & Leadership Consulting</p>
   </section>
 
+  <section id="content">
+    <h2>Content Creation</h2>
+    <p>I create compelling technical content that bridges the gap between complex AI concepts and practical business applications:</p>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <h3>AI Explained Series</h3>
+        <p>Technical blog posts breaking down complex AI topics into digestible content for business leaders</p>
+      </div>
+      <div class="portfolio-item">
+        <h3>Data Storytelling</h3>
+        <p>Transforming raw data into compelling narratives with visualizations and actionable insights</p>
+      </div>
+      <div class="portfolio-item">
+        <h3>Technical Documentation</h3>
+        <p>Clear, concise documentation for AI products and APIs with developer-focused examples</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="design">
+    <h2>UI/UX Design</h2>
+    <p>Human-centered design approach for AI applications that balances technical capabilities with intuitive user experiences:</p>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <h3>AI Dashboard Design</h3>
+        <p>Interactive interfaces for monitoring and interpreting AI model performance</p>
+      </div>
+      <div class="portfolio-item">
+        <h3>Conversational UI</h3>
+        <p>Designing natural language interfaces for AI assistants and chatbots</p>
+      </div>
+      <div class="portfolio-item">
+        <h3>Data Visualization</h3>
+        <p>Creating meaningful visual representations of complex AI outputs</p>
+      </div>
+    </div>
+  </section>
+
   <section id="snake">
-    <h2>Play Snake 🐍</h2>
+    <h2>Play Snake </h2>
     <canvas id="snakeCanvas" width="400" height="400"></canvas>
   </section>
 
@@ -141,7 +225,7 @@
   </section>
 
   <footer>
-    <p>© 2025 Ankur Pachauri. Powered by AI & Robotics.</p>
+    <p>© 2025 Ankur Pachauri. Powered by AI & Creativity.</p>
   </footer>
 
   <!-- Chatbot Integration -->
