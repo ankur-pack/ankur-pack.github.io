@@ -2,296 +2,139 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ankur Pachauri - AI/ML Leadership & Creative Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Ankur Pachauri – AI/ML Leadership Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background: #0a0a0f;
-      color: #fff;
-      overflow-x: hidden;
-    }
-    header {
-      text-align: center;
-      padding: 2rem;
-      background: #111;
-      border-bottom: 2px solid #00d4ff;
-    }
-    header h1 {
-      font-family: 'Orbitron', monospace;
-      font-size: 3rem;
-      color: #00d4ff;
-      text-shadow: 0 0 15px #00d4ff;
-    }
-    nav {
-      text-align: center;
-      padding: 1rem;
-    }
-    nav a {
-      margin: 0 15px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      color: #00ff88;
-      text-shadow: 0 0 10px #00ff88;
-    }
-    section {
-      padding: 3rem;
-      text-align: center;
-    }
-    .snake-game {
-      margin: 2rem auto;
-      width: 400px;
-      height: 400px;
-      border: 2px solid #00ff88;
-      background: #111;
-      position: relative;
-    }
-    canvas {
-      display: block;
-      margin: auto;
-      background: #000;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      border-top: 2px solid #00d4ff;
-      background: #111;
-      color: #888;
-    }
-    .contact-form {
-      max-width: 500px;
-      margin: auto;
-      text-align: left;
-    }
-    .contact-form label { display:block; margin-top:1rem; }
-    .contact-form input, .contact-form textarea {
-      width: 100%;
-      padding: 0.7rem;
-      background: #222;
-      color: #fff;
-      border: 1px solid #00d4ff;
-      border-radius: 8px;
-    }
-    .contact-form button {
-      margin-top: 1rem;
-      padding: 1rem;
-      width: 100%;
-      background: #00d4ff;
-      border: none;
-      font-weight: bold;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .contact-form button:hover {
-      background: #00ff88;
-      color: #111;
-    }
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-    .portfolio-item {
-      background: #222;
-      padding: 1.5rem;
-      border-radius: 8px;
-      border: 1px solid #00d4ff;
-      transition: transform 0.3s;
-    }
-    .portfolio-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
-    }
-    .portfolio-item img {
-      max-width: 100%;
-      border-radius: 4px;
-    }
-    .skills-chart {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-    .skill {
-      background: #00d4ff;
-      color: #111;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-weight: bold;
-    }
+    /* ===== Global Styles ===== */
+    body { margin:0; font-family:'Roboto',sans-serif; background:#0a0a0f; color:#fff; overflow-x:hidden; }
+    h1,h2,h3 { font-family:'Orbitron',sans-serif; }
+    a { text-decoration:none; }
+
+    /* ===== Animated Background ===== */
+    canvas#bg { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; background:#0a0a0f; }
+
+    /* ===== Header / Hero ===== */
+    header { text-align:center; padding:6rem 2rem; background:rgba(10,10,15,0.9); }
+    header h1 { font-size:3.5rem; color:#00d4ff; text-shadow:0 0 20px #00d4ff; }
+    header p { font-size:1.2rem; color:#ccc; max-width:800px; margin:1rem auto; }
+    .cta-btn { display:inline-block; margin-top:2rem; padding:1rem 2rem; background:#00d4ff; border-radius:10px; color:#111; font-weight:bold; transition:.3s; }
+    .cta-btn:hover { background:#00ff88; }
+
+    /* ===== Navigation ===== */
+    nav { text-align:center; padding:1rem; background:#111; border-bottom:1px solid #222; position:sticky; top:0; z-index:10; }
+    nav a { margin:0 20px; color:#fff; font-weight:500; }
+    nav a:hover { color:#00ff88; text-shadow:0 0 10px #00ff88; }
+
+    /* ===== Sections ===== */
+    section { padding:5rem 2rem; text-align:center; }
+    section h2 { font-size:2.5rem; color:#00d4ff; margin-bottom:2rem; }
+
+    /* ===== Grid Cards ===== */
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2rem; max-width:1100px; margin:auto; }
+    .card { background:#111; padding:2rem; border-radius:12px; border:1px solid #00d4ff30; transition:.3s; text-align:left; }
+    .card:hover { border:1px solid #00d4ff; transform:translateY(-6px); box-shadow:0 0 20px #00d4ff60; }
+
+    /* ===== Career Timeline ===== */
+    .timeline { max-width:900px; margin:3rem auto; border-left:2px solid #00d4ff; padding-left:2rem; }
+    .timeline-item { margin-bottom:2rem; position:relative; }
+    .timeline-item:before { content:""; position:absolute; left:-11px; top:6px; width:20px; height:20px; border-radius:50%; background:#00d4ff; }
+    .timeline-item h3 { margin:0; color:#00ff88; }
+    .timeline-item p { margin:.3rem 0 0; color:#ccc; }
+
+    /* ===== Footer ===== */
+    footer { text-align:center; padding:2rem; border-top:2px solid #00d4ff; background:#111; color:#888; font-size:.9rem; }
   </style>
 </head>
 <body>
+  <canvas id="bg"></canvas>
+
+  <!-- Hero -->
   <header>
-    <h1>🚀 Ankur Pachauri | AI/ML Leadership & Creative Design</h1>
-    <p>Bridging technology and creativity through AI-powered solutions and intuitive design</p>
+    <h1>🚀 Ankur Pachauri</h1>
+    <p>AI/ML Leader | Driving Enterprise AI, GenAI, and Data Strategy for Global Impact</p>
+    <a href="#contact" class="cta-btn">Book a Strategy Call</a>
   </header>
 
+  <!-- Navigation -->
   <nav>
     <a href="#about">About</a>
+    <a href="#leadership">Leadership</a>
     <a href="#offerings">Offerings</a>
-    <a href="#content">Content</a>
-    <a href="#design">UI/UX</a>
-    <a href="#snake">Snake Game</a>
-    <a href="#contact">Contact</a>
+    <a href="#projects">Projects</a>
+    <a href="#career">Career</a>
+    <a href="#contact">Connect</a>
   </nav>
 
+  <!-- About -->
   <section id="about">
     <h2>About Me</h2>
-    <p>Head of AI/ML & Data | 15+ years leadership | Expert in GenAI, ML Ops, and Enterprise AI. 
-       Proven track record in building scalable AI products across healthcare, finance, retail, and insurance.</p>
-    <p>As a content creator and UI/UX designer, I specialize in translating complex technical concepts into engaging visual narratives and intuitive user experiences.</p>
+    <p>I am a results-driven AI/ML leader with 15+ years of experience building, deploying, and scaling enterprise AI solutions across healthcare, finance, retail, and insurance.  
+    My mission: translate complex AI into actionable, human-centered business value.</p>
   </section>
 
+  <!-- Leadership Impact -->
+  <section id="leadership">
+    <h2>Leadership Impact</h2>
+    <div class="grid">
+      <div class="card"><h3>Strategic Vision</h3><p>Guided global enterprises in adopting AI-first strategies that align technology with business transformation.</p></div>
+      <div class="card"><h3>Mentorship</h3><p>Coached teams of data scientists, engineers, and analysts to scale AI capabilities and foster innovation culture.</p></div>
+      <div class="card"><h3>Thought Leadership</h3><p>Speaker at AI leadership forums, advisor on AI adoption, and contributor to global AI communities.</p></div>
+    </div>
+  </section>
+
+  <!-- Offerings -->
   <section id="offerings">
-    <h2>Offerings</h2>
-    <div class="skills-chart">
-      <span class="skill">AI Strategy</span>
-      <span class="skill">Machine Learning</span>
-      <span class="skill">Generative AI</span>
-      <span class="skill">Technical Content</span>
-      <span class="skill">UI/UX Design</span>
-      <span class="skill">Data Visualization</span>
-    </div>
-    <p>🔹 Healthcare AI (Predictive doctor visits, patient monitoring)<br>
-        🔹 Retail AI (Smart recommendations, demand forecasting)<br>
-        🔹 Finance (Risk scoring, fraud detection)<br>
-       🔹 Insurance (Claims automation, anomaly detection)<br>
-        🔹 Manufacturing (Predictive maintenance, robotics)<br>
-       🔹 AI Strategy & Leadership Consulting</p>
-  </section>
-
-  <section id="content">
-    <h2>Content Creation</h2>
-    <p>I create compelling technical content that bridges the gap between complex AI concepts and practical business applications:</p>
-    <div class="portfolio-grid">
-      <div class="portfolio-item">
-        <h3>AI Explained Series</h3>
-        <p>Technical blog posts breaking down complex AI topics into digestible content for business leaders</p>
-      </div>
-      <div class="portfolio-item">
-        <h3>Data Storytelling</h3>
-        <p>Transforming raw data into compelling narratives with visualizations and actionable insights</p>
-      </div>
-      <div class="portfolio-item">
-        <h3>Technical Documentation</h3>
-        <p>Clear, concise documentation for AI products and APIs with developer-focused examples</p>
-      </div>
+    <h2>What I Offer</h2>
+    <div class="grid">
+      <div class="card"><h3>AI Strategy & Roadmaps</h3><p>Partnering with leadership teams to define, design, and deliver AI transformation journeys.</p></div>
+      <div class="card"><h3>Enterprise AI Solutions</h3><p>From fraud detection to recommendation engines — delivering scalable ML systems.</p></div>
+      <div class="card"><h3>MLOps & GenAI</h3><p>Operationalizing AI with best-in-class practices for deployment, monitoring, and lifecycle management.</p></div>
+      <div class="card"><h3>Innovation Labs</h3><p>Leading POCs in semantic search, multimodal AI, and domain-specific LLMs for enterprise use cases.</p></div>
     </div>
   </section>
 
-  <section id="design">
-    <h2>UI/UX Design</h2>
-    <p>Human-centered design approach for AI applications that balances technical capabilities with intuitive user experiences:</p>
-    <div class="portfolio-grid">
-      <div class="portfolio-item">
-        <h3>AI Dashboard Design</h3>
-        <p>Interactive interfaces for monitoring and interpreting AI model performance</p>
-      </div>
-      <div class="portfolio-item">
-        <h3>Conversational UI</h3>
-        <p>Designing natural language interfaces for AI assistants and chatbots</p>
-      </div>
-      <div class="portfolio-item">
-        <h3>Data Visualization</h3>
-        <p>Creating meaningful visual representations of complex AI outputs</p>
-      </div>
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Highlighted Projects</h2>
+    <div class="grid">
+      <div class="card"><h3>Hybrid Semantic Search</h3><p>Designed intranet-ready hybrid search (BM25 + embeddings) with Hugging Face + OpenSearch, deployed on AWS SageMaker.</p></div>
+      <div class="card"><h3>Student Advising System</h3><p>AI-powered system integrating curriculum, enrollment, and predictive modeling to guide student success.</p></div>
+      <div class="card"><h3>Sales Forecasting</h3><p>Built sales projection models with AI-driven forecasting pipelines for global consulting engagements.</p></div>
     </div>
   </section>
 
-  <section id="snake">
-    <h2>Play Snake </h2>
-    <canvas id="snakeCanvas" width="400" height="400"></canvas>
+  <!-- Career Timeline -->
+  <section id="career">
+    <h2>Career Journey</h2>
+    <div class="timeline">
+      <div class="timeline-item"><h3>2025 – Co-Founder, Tatva360.ai</h3><p>Driving enterprise AI-led digital solutions, focused on GenAI, ML, and semantic search.</p></div>
+      <div class="timeline-item"><h3>2018–2025 – AI/ML Leadership Roles</h3><p>Led cross-functional teams in deploying AI solutions across industries, mentoring next-gen practitioners.</p></div>
+      <div class="timeline-item"><h3>2010–2018 – Data & AI Engineer</h3><p>Hands-on development of ML pipelines, cloud deployments (AWS/Azure/GCP), and data engineering systems.</p></div>
+    </div>
   </section>
 
+  <!-- Contact -->
   <section id="contact">
-    <h2>Contact Me</h2>
-    <form class="contact-form" id="contactForm">
-      <label>Name:</label>
-      <input type="text" id="name" required>
-      <label>Email:</label>
-      <input type="email" id="email" required>
-      <label>Message:</label>
-      <textarea id="message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
+    <h2>Connect with Me</h2>
+    <p>Let’s explore how AI can drive your next wave of innovation.</p>
+    <div class="calendly-inline-widget" data-url="https://calendly.com/limat-ankur/30min" style="min-width:320px;height:700px;"></div>
   </section>
 
   <footer>
-    <p>© 2025 Ankur Pachauri. Powered by AI & Creativity.</p>
+    <p>© 2025 Ankur Pachauri — AI/ML Leadership Portfolio</p>
   </footer>
 
-  <!-- Chatbot Integration -->
-  <script src='https://cdn.jotfor.ms/agent/embedjs/0198e2ccedde7efdb02e819a868771190bad/embed.js?skipWelcome=1&maximizable=1'></script>
+  <!-- Calendly JS -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
 
+  <!-- Background Animation -->
   <script>
-    // Snake Game Logic
-    const canvas = document.getElementById('snakeCanvas');
-    const ctx = canvas.getContext('2d');
-    let box = 20;
-    let snake = [{x:9*box, y:10*box}];
-    let food = {x: Math.floor(Math.random()*19+1)*box, y: Math.floor(Math.random()*19+1)*box};
-    let d;
-
-    document.addEventListener("keydown", direction);
-    function direction(event){
-      if(event.keyCode == 37 && d!="RIGHT"){ d="LEFT"; }
-      else if(event.keyCode == 38 && d!="DOWN"){ d="UP"; }
-      else if(event.keyCode == 39 && d!="LEFT"){ d="RIGHT"; }
-      else if(event.keyCode == 40 && d!="UP"){ d="DOWN"; }
-    }
-
-    function draw(){
-      ctx.fillStyle="#000"; ctx.fillRect(0,0,400,400);
-      for(let i=0;i<snake.length;i++){
-        ctx.fillStyle=(i==0)?"#00ff88":"#00d4ff";
-        ctx.fillRect(snake[i].x,snake[i].y,box,box);
-      }
-      ctx.fillStyle="red";
-      ctx.fillRect(food.x,food.y,box,box);
-
-      let snakeX = snake[0].x;
-      let snakeY = snake[0].y;
-      if(d=="LEFT") snakeX-=box;
-      if(d=="UP") snakeY-=box;
-      if(d=="RIGHT") snakeX+=box;
-      if(d=="DOWN") snakeY+=box;
-
-      if(snakeX==food.x && snakeY==food.y){
-        food={x: Math.floor(Math.random()*19+1)*box, y: Math.floor(Math.random()*19+1)*box};
-      } else {
-        snake.pop();
-      }
-
-      let newHead={x:snakeX,y:snakeY};
-      if(snakeX<0||snakeY<0||snakeX>=400||snakeY>=400||collision(newHead,snake)){ clearInterval(game); }
-      snake.unshift(newHead);
-    }
-
-    function collision(head,array){ for(let i=0;i<array.length;i++){ if(head.x==array[i].x && head.y==array[i].y){return true;} } return false; }
-    let game=setInterval(draw,100);
-
-    // Contact Form Logic (save + thank you)
-    document.getElementById("contactForm").addEventListener("submit", function(e){
-      e.preventDefault();
-      const name=document.getElementById("name").value;
-      const email=document.getElementById("email").value;
-      const msg=document.getElementById("message").value;
-
-      let conv = JSON.parse(localStorage.getItem("conversations")||"[]");
-      conv.push({name,email,msg,date:new Date().toISOString()});
-      localStorage.setItem("conversations",JSON.stringify(conv));
-
-      alert("✅ Thank you "+name+"! Your message has been received. We'll contact you soon.");
-      this.reset();
-    });
+    const canvas=document.getElementById('bg'); const ctx=canvas.getContext('2d');
+    canvas.width=window.innerWidth; canvas.height=window.innerHeight;
+    let stars=[]; for(let i=0;i<120;i++){stars.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.5+0.5});}
+    function drawStars(){ctx.clearRect(0,0,canvas.width,canvas.height); ctx.fillStyle="#00d4ff"; stars.forEach(s=>{ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2); ctx.fill(); s.y+=0.2; if(s.y>canvas.height)s.y=0;}); requestAnimationFrame(drawStars);}
+    drawStars();
   </script>
 </body>
 </html>
